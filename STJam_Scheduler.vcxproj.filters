@@ -29,6 +29,12 @@
     <ClInclude Include="Form1.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="SqlController.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="MyMessageBoxes.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -41,6 +47,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Form1.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="SqlController.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="MyMessageBoxes.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
