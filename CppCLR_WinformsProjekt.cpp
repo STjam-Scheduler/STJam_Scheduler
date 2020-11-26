@@ -9,6 +9,7 @@ using namespace System;
 //}
 
 #include "Form1.h"
+#include "CalendarForm.h"
 
 using namespace System::Windows::Forms;
 
@@ -19,6 +20,6 @@ int main() {
 																																	//-> 3.) Ausfuehren: bei erfolgreicher Verbindung sollte eine Message Box erscheinen
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	Application::Run(gcnew CppCLRWinformsProjekt::Form1()); 
+	Application::Run(gcnew Window::CalendarForm());
 	return 0;
 }

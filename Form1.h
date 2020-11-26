@@ -1,6 +1,6 @@
 #pragma once
 
-namespace CppCLRWinformsProjekt {
+namespace Window {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -57,9 +57,13 @@ namespace CppCLRWinformsProjekt {
 			this->ClientSize = System::Drawing::Size(471, 261);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
+			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
+
+	}
 	};
 }
