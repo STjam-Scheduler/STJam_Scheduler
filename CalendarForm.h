@@ -19,54 +19,53 @@ namespace Window {
 	public ref class CalendarForm : public System::Windows::Forms::Form
 	{
 	public:
-		static cli::array<Button^, 1>^ buttons = gcnew cli::array<Button^, 1>(42);
+		static cli::array<Button^, 2>^ buttons = gcnew cli::array<Button^, 2>(6,7);
 	public:
 		CalendarForm(void)
 		{
 			InitializeComponent();
-			buttons[0] = button1;
-			buttons[1] = button2;
-			buttons[2] = button3;
-			buttons[3] = button4;
-			buttons[4] = button5;
-			buttons[5] = button6;
-			buttons[6] = button7;
-			buttons[7] = button8;
-			buttons[8] = button9;
-			buttons[9] = button10;
-			buttons[10] = button11;
-			buttons[11] = button12;
-			buttons[12] = button13;
-			buttons[13] = button14;
-			buttons[14] = button15;
-			buttons[15] = button16;
-			buttons[16] = button17;
-			buttons[17] = button18;
-			buttons[18] = button19;
-			buttons[19] = button20;
-			buttons[20] = button21;
-			buttons[21] = button22;
-			buttons[22] = button23;
-			buttons[23] = button24;
-			buttons[24] = button25;
-			buttons[25] = button26;
-			buttons[26] = button27;
-			buttons[27] = button28;
-			buttons[28] = button29;
-			buttons[29] = button30;
-			buttons[30] = button31;
-			buttons[31] = button32;
-			buttons[32] = button33;
-			buttons[33] = button34;
-			buttons[34] = button35;
-			buttons[35] = button36;
-			buttons[36] = button37;
-			buttons[37] = button38;
-			buttons[38] = button39;
-			buttons[39] = button40;
-			buttons[40] = button41;
-			buttons[41] = button42;
-
+			buttons[0,0] = button1;
+			buttons[0,1] = button2;
+			buttons[0,2] = button3;
+			buttons[0,3] = button4;
+			buttons[0,4] = button5;
+			buttons[0,5] = button6;
+			buttons[0,6] = button7;
+			buttons[1,0] = button8;
+			buttons[1,1] = button9;
+			buttons[1,2] = button10;
+			buttons[1,3] = button11;
+			buttons[1,4] = button12;
+			buttons[1,5] = button13;
+			buttons[1,6] = button14;
+			buttons[2,0] = button15;
+			buttons[2,1] = button16;
+			buttons[2,2] = button17;
+			buttons[2,3] = button18;
+			buttons[2,4] = button19;
+			buttons[2,5] = button20;
+			buttons[2,6] = button21;
+			buttons[3,0] = button22;
+			buttons[3,1] = button23;
+			buttons[3,2] = button24;
+			buttons[3,3] = button25;
+			buttons[3,4] = button26;
+			buttons[3,5] = button27;
+			buttons[3,6] = button28;
+			buttons[4,0] = button29;
+			buttons[4,1] = button30;
+			buttons[4,2] = button31;
+			buttons[4,3] = button32;
+			buttons[4,4] = button33;
+			buttons[4,5] = button34;
+			buttons[4,6] = button35;
+			buttons[5,0] = button36;
+			buttons[5,1] = button37;
+			buttons[5,2] = button38;
+			buttons[5,3] = button39;
+			buttons[5,4] = button40;
+			buttons[5,5] = button41;
+			buttons[5,6] = button42;
 			//
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
@@ -860,6 +859,7 @@ namespace Window {
 			this->Name = L"CalendarForm";
 			this->Text = L"STJam Scheduler ";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			this->Load += gcnew System::EventHandler(this, &CalendarForm::CalendarForm_Load);
 			this->flowLayoutPanel1->ResumeLayout(false);
 			this->flowLayoutPanel2->ResumeLayout(false);
 			this->flowLayoutPanel2->PerformLayout();
@@ -872,7 +872,9 @@ namespace Window {
 		//String^ s = gcnew String(char* / string)
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	button1->Text = gcnew String("12131231");
-	MyCalendar::getCurrDate();
+}
+private: System::Void CalendarForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	MyCalendar::setStartDayPos();
 }
 };
 }
