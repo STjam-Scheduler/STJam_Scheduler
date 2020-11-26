@@ -20,6 +20,9 @@ namespace Window {
 	{
 	public:
 		static cli::array<Button^, 2>^ buttons = gcnew cli::array<Button^, 2>(6,7);
+		static System::Windows::Forms::Label^ monthLabel;
+	public:
+
 	public:
 		CalendarForm(void)
 		{
@@ -66,6 +69,8 @@ namespace Window {
 			buttons[5,4] = button40;
 			buttons[5,5] = button41;
 			buttons[5,6] = button42;
+
+			monthLabel = mLabel;
 			//
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
@@ -137,7 +142,8 @@ namespace Window {
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::Button^ button44;
 	private: System::Windows::Forms::Button^ button43;
-	private: System::Windows::Forms::Label^ label8;
+private: System::Windows::Forms::Label^ mLabel;
+
 
 	private:
 		/// <summary>
@@ -206,7 +212,7 @@ namespace Window {
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->button44 = (gcnew System::Windows::Forms::Button());
 			this->button43 = (gcnew System::Windows::Forms::Button());
-			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->mLabel = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel1->SuspendLayout();
 			this->flowLayoutPanel2->SuspendLayout();
 			this->groupBox1->SuspendLayout();
@@ -805,7 +811,7 @@ namespace Window {
 			// 
 			this->groupBox1->Controls->Add(this->button44);
 			this->groupBox1->Controls->Add(this->button43);
-			this->groupBox1->Controls->Add(this->label8);
+			this->groupBox1->Controls->Add(this->mLabel);
 			this->groupBox1->Controls->Add(this->flowLayoutPanel1);
 			this->groupBox1->Controls->Add(this->flowLayoutPanel2);
 			this->groupBox1->Location = System::Drawing::Point(12, 12);
@@ -837,18 +843,18 @@ namespace Window {
 			this->button43->Text = L"<";
 			this->button43->UseVisualStyleBackColor = true;
 			// 
-			// label8
+			// mLabel
 			// 
-			this->label8->AutoSize = true;
-			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->mLabel->AutoSize = true;
+			this->mLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->Location = System::Drawing::Point(546, 16);
-			this->label8->MinimumSize = System::Drawing::Size(180, 50);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(180, 50);
-			this->label8->TabIndex = 2;
-			this->label8->Text = L"Month";
-			this->label8->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->mLabel->Location = System::Drawing::Point(546, 16);
+			this->mLabel->MinimumSize = System::Drawing::Size(180, 50);
+			this->mLabel->Name = L"mLabel";
+			this->mLabel->Size = System::Drawing::Size(180, 50);
+			this->mLabel->TabIndex = 2;
+			this->mLabel->Text = L"Month";
+			this->mLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// CalendarForm
 			// 
@@ -874,7 +880,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	button1->Text = gcnew String("12131231");
 }
 private: System::Void CalendarForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	MyCalendar::setStartDayPos();
+	MyCalendar::initializeCalendar();
 }
 };
 }
