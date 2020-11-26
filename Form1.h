@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 namespace Window {
 
@@ -10,7 +10,7 @@ namespace Window {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Zusammenfassung für Form1
+	/// Zusammenfassung fï¿½r Form1
 	/// </summary>
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
@@ -19,7 +19,7 @@ namespace Window {
 		{
 			InitializeComponent();
 			//
-			//TODO: Konstruktorcode hier hinzufügen.
+			//TODO: Konstruktorcode hier hinzufï¿½gen.
 			//
 		}
 
@@ -34,6 +34,12 @@ namespace Window {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^ test;
+	protected:
+
+	protected:
+
+	protected:
 
 	private:
 		/// <summary>
@@ -43,27 +49,37 @@ namespace Window {
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Erforderliche Methode für die Designerunterstützung.
-		/// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+		/// Erforderliche Methode fï¿½r die Designerunterstï¿½tzung.
+		/// Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->test = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
+			// 
+			// test
+			// 
+			this->test->Location = System::Drawing::Point(187, 99);
+			this->test->Name = L"test";
+			this->test->Size = System::Drawing::Size(75, 23);
+			this->test->TabIndex = 0;
+			this->test->Text = L"test";
+			this->test->UseVisualStyleBackColor = true;
+			this->test->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(471, 261);
+			this->Controls->Add(this->test);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
-			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
-
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	};
 }
