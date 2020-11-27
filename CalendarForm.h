@@ -831,6 +831,7 @@ private: System::Windows::Forms::Label^ mLabel;
 			this->button44->TabIndex = 4;
 			this->button44->Text = L">";
 			this->button44->UseVisualStyleBackColor = true;
+			this->button44->Click += gcnew System::EventHandler(this, &CalendarForm::button44_Click);
 			// 
 			// button43
 			// 
@@ -881,6 +882,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void CalendarForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	MyCalendar::initializeCalendar();
+}
+private: System::Void button44_Click(System::Object^ sender, System::EventArgs^ e) {
+	MyCalendar::nextMonth();
 }
 };
 }

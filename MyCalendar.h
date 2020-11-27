@@ -10,6 +10,8 @@ public:
 	static std::string currSelectedMonth;
 	static int xStartPos;
 	static int yStartPos;
+	static int next_xStartPos;
+	static int prev_xStartPos;
 
 	static void initializeCalendar();
 
@@ -19,6 +21,12 @@ public:
 	static std::string printDate_str(const time_t, const char* format);
 
 	static void setMonth(const time_t t);
+	static void setMonth(std::string monthname);
 	static void setStartDayPos();
 	static void setUpRest();
+
+	static void resetAllBtns();
+
+	static void nextMonth();
+	static void prevMonth();
 };
