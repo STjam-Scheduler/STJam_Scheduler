@@ -150,11 +150,9 @@
     <ClInclude Include="CalendarForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Form1.h">
     <ClInclude Include="LoginForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-
     <ClInclude Include="MyCalendar.h" />
     <ClInclude Include="MyMessageBoxes.h" />
     <ClInclude Include="pch.h" />
@@ -164,7 +162,6 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CppCLR_WinformsProjekt.cpp" />
-    <ClCompile Include="Form1.cpp" />
     <ClCompile Include="MyCalendar.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MyMessageBoxes.cpp" />
@@ -190,8 +187,6 @@
     <EmbeddedResource Include="CalendarForm.resx">
       <DependentUpon>CalendarForm.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.h</DependentUpon>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>
     </EmbeddedResource>
