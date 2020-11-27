@@ -19,7 +19,8 @@ namespace Window {
 	public ref class CalendarForm : public System::Windows::Forms::Form
 	{
 	public:
-		static cli::array<Button^, 2>^ buttons = gcnew cli::array<Button^, 2>(6,7);
+		static cli::array<Button^, 2>^ buttons = gcnew cli::array<Button^, 2>(6,7); 
+		static System::Windows::Forms::Label^ yearLabel;
 		static System::Windows::Forms::Label^ monthLabel;
 	public:
 
@@ -71,6 +72,7 @@ namespace Window {
 			buttons[5,6] = button42;
 
 			monthLabel = mLabel;
+			yearLabel = yLabel;
 			//
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
@@ -143,7 +145,9 @@ namespace Window {
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::Button^ button44;
 	private: System::Windows::Forms::Button^ button43;
-private: System::Windows::Forms::Label^ mLabel;
+	private: System::Windows::Forms::Label^ mLabel;
+	private: System::Windows::Forms::Label^ yLabel;
+
 
 
 	private:
@@ -211,6 +215,7 @@ private: System::Windows::Forms::Label^ mLabel;
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->yLabel = (gcnew System::Windows::Forms::Label());
 			this->button44 = (gcnew System::Windows::Forms::Button());
 			this->button43 = (gcnew System::Windows::Forms::Button());
 			this->mLabel = (gcnew System::Windows::Forms::Label());
@@ -810,6 +815,7 @@ private: System::Windows::Forms::Label^ mLabel;
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->Controls->Add(this->yLabel);
 			this->groupBox1->Controls->Add(this->button44);
 			this->groupBox1->Controls->Add(this->button43);
 			this->groupBox1->Controls->Add(this->mLabel);
@@ -821,6 +827,19 @@ private: System::Windows::Forms::Label^ mLabel;
 			this->groupBox1->TabIndex = 42;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Calendar";
+			// 
+			// yLabel
+			// 
+			this->yLabel->AutoSize = true;
+			this->yLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->yLabel->Location = System::Drawing::Point(1116, 16);
+			this->yLabel->MinimumSize = System::Drawing::Size(150, 40);
+			this->yLabel->Name = L"yLabel";
+			this->yLabel->Size = System::Drawing::Size(150, 40);
+			this->yLabel->TabIndex = 5;
+			this->yLabel->Text = L"2077";
+			this->yLabel->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// button44
 			// 

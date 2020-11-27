@@ -70,8 +70,9 @@ namespace MyMonth {
 }
 
 
-
-
+/// <summary>
+/// global static variables of MyCalendar.cpp
+/// </summary>
 std::string MyCalendar::currSelectedMonth = "Default";
 int MyCalendar::currSelectedYear = 0;
 int MyCalendar::xStartPos = 0;
@@ -84,25 +85,23 @@ time_t MyCalendar::getCurrDate() {
 	return time(0);
 }
 
-char* MyCalendar::printDate_ch(const time_t t, const char* format) {
-	char out[80];
-	struct tm* timeinfo;
-	timeinfo = localtime(&t);
-
-	strftime(out, 80, format, timeinfo);
-	return out;
+bool MyCalendar::isLeapYear(int year) {
+	return (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0));
 }
 
-std::string MyCalendar::printDate_str(const time_t t, const char* format) {
-	char out[80];
-	struct tm* timeinfo;
-	timeinfo = localtime(&t);
+#pragma region set/get/reset()
+void MyCalendar::setYear(const time_t t = getCurrDate()) {
+	currSelectedYear = stoi(printDate_str(t, "%Y"));
 
-	strftime(out, 80, format, timeinfo);
-	std::string str(out);
-	return str;
+	std::string s = std::to_string(currSelectedYear);
+	char const* year_pchar = s.c_str();
+	Window::CalendarForm::yearLabel->Text = gcnew System::String(year_pchar);
 }
-
+void MyCalendar::setYear(int year) {
+	std::string s = std::to_string(year);
+	char const* year_pchar = s.c_str();
+	Window::CalendarForm::yearLabel->Text = gcnew System::String(year_pchar);
+}
 void MyCalendar::setMonth(const time_t t = getCurrDate()) {
 	currSelectedMonth = printDate_str(t, "%B");
 	Window::CalendarForm::monthLabel->Text = gcnew System::String(currSelectedMonth.c_str());
@@ -112,6 +111,7 @@ void MyCalendar::setMonth(std::string monthname) {
 	Window::CalendarForm::monthLabel->Text = gcnew System::String(monthname.c_str());
 }
 
+
 void MyCalendar::resetAllBtns() {
 	for (int y = 0; y < 6; y++) {
 		for (int x = 0; x < 7; x++) {
@@ -120,12 +120,12 @@ void MyCalendar::resetAllBtns() {
 	}
 }
 
-
 void MyCalendar::setStartDayPos() {
 	resetAllBtns();
-
+	setYear();
+	setMonth();
 	time_t currDate = getCurrDate();
-	currSelectedYear = stoi(printDate_str(currDate, "%Y"));
+
 	int month = stoi(printDate_str(currDate, "%m")); // > set curr month ToDo: List of month names with indexes 0-11
 	int dayofmonth = stoi(printDate_str(currDate, "%e"));
 	int weekday = stoi(printDate_str(currDate, "%u")); // > "x-Coordinate"
@@ -162,6 +162,13 @@ void MyCalendar::setUpRest() {
 	int day = 1;
 	bool firstRun = true;
 
+
+	if (isLeapYear(currSelectedYear))		//Leap Year Check
+		MyMonth::months[1].days = 29;
+	else
+		MyMonth::months[1].days = 28;
+
+
 	for (int y = startY; y < 6; y++) {		//ToDo: Fill all Days, not only the days of this month if(y >= startY)... etc attention if(x>= startX) only once -> need prev Month.days for pre Month + reset day counter to 0 after month end
 		for (int x = 0; x < 7; x++) {
 			if (day > MyMonth::getMonth(currSelectedMonth).days) //ToDo: Get Month.days automatic through func()
@@ -178,6 +185,27 @@ void MyCalendar::setUpRest() {
 	prev_xStartPos = (startX - 1) % 6;
 	next_xStartPos = (MyMonth::getMonth(currSelectedMonth).days - 1) % 7;
 }
+#pragma endregion
+
+#pragma region print()
+char* MyCalendar::printDate_ch(const time_t t, const char* format) {
+	char out[80];
+	struct tm* timeinfo;
+	timeinfo = localtime(&t);
+
+	strftime(out, 80, format, timeinfo);
+	return out;
+}
+std::string MyCalendar::printDate_str(const time_t t, const char* format) {
+	char out[80];
+	struct tm* timeinfo;
+	timeinfo = localtime(&t);
+
+	strftime(out, 80, format, timeinfo);
+	std::string str(out);
+	return str;
+}
+#pragma endregion
 
 
 void MyCalendar::nextMonth() {
@@ -190,9 +218,15 @@ void MyCalendar::nextMonth() {
 	if (currSelectedMonth != "December") {
 		setMonth(MyMonth::months[MyMonth::getMonth(currSelectedMonth).index + 1].name);
 	}
-	else{
-		currSelectedYear++;
+	else{										//Check for Leap Year if new currSelectedYear
+		setYear(++currSelectedYear);
+
 		setMonth("January");
+
+		if (isLeapYear(currSelectedYear))
+			MyMonth::months[1].days = 29;
+		else
+			MyMonth::months[1].days = 28;
 	}
 
 	int day = 1;
@@ -226,11 +260,17 @@ void MyCalendar::prevMonth() {
 		next_xStartPos = 0;
 
 	if (currSelectedMonth != "January") {
-		setMonth(MyMonth::months[MyMonth::getMonth(currSelectedMonth).index - 1].name);
+		setMonth(MyMonth::months[MyMonth::getMonth(currSelectedMonth).index - 1].name);		
 	}
-	else {
-		currSelectedYear--;
+	else {									//Check for Leap Year if new currSelectedYear
+		setYear(--currSelectedYear);
+
 		setMonth("December");
+
+		if (isLeapYear(currSelectedYear))
+			MyMonth::months[1].days = 29;
+		else
+			MyMonth::months[1].days = 28;
 	}
 
 	int day = MyMonth::getMonth(currSelectedMonth).days;
@@ -243,7 +283,6 @@ void MyCalendar::prevMonth() {
 
 
 	firstRun = true;
-	//start y? = month.days / 7 ganzzahlige Div nur bedingt, ausnahme muss bedacht werden
 	for (y; y >= 0; y--) {
 		for (x = 6; x >= 0; x--) {
 			if (day < 1)
@@ -263,16 +302,12 @@ void MyCalendar::prevMonth() {
 			break;
 		}
 	}
-	//prev_xStartPos = (next_xStartPos - 1) % 6;
 }
-
-
 
 
 
 void MyCalendar::initializeCalendar() {
 	MyMonth::initializeMonths();
-	setMonth();
 	setStartDayPos();
 	setUpRest();
 }
