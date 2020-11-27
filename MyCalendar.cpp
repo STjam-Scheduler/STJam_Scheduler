@@ -73,6 +73,7 @@ namespace MyMonth {
 
 
 std::string MyCalendar::currSelectedMonth = "Default";
+int MyCalendar::currSelectedYear = 0;
 int MyCalendar::xStartPos = 0;
 int MyCalendar::yStartPos = 0;
 int MyCalendar::next_xStartPos = 0;
@@ -124,6 +125,7 @@ void MyCalendar::setStartDayPos() {
 	resetAllBtns();
 
 	time_t currDate = getCurrDate();
+	currSelectedYear = stoi(printDate_str(currDate, "%Y"));
 	int month = stoi(printDate_str(currDate, "%m")); // > set curr month ToDo: List of month names with indexes 0-11
 	int dayofmonth = stoi(printDate_str(currDate, "%e"));
 	int weekday = stoi(printDate_str(currDate, "%u")); // > "x-Coordinate"
@@ -181,11 +183,15 @@ void MyCalendar::setUpRest() {
 void MyCalendar::nextMonth() {
 	resetAllBtns();
 
+	prev_xStartPos = next_xStartPos - 1;
+	if (prev_xStartPos < 0)
+		prev_xStartPos = 6;
+
 	if (currSelectedMonth != "December") {
 		setMonth(MyMonth::months[MyMonth::getMonth(currSelectedMonth).index + 1].name);
 	}
-	else
-	{
+	else{
+		currSelectedYear++;
 		setMonth("January");
 	}
 
@@ -194,9 +200,8 @@ void MyCalendar::nextMonth() {
 	bool firstRun = true;
 	for (int y = 0; y < 6; y++) {
 		for (x = 0; x < 7; x++) {
-			if (day > MyMonth::getMonth(currSelectedMonth).days) {
+			if (day > MyMonth::getMonth(currSelectedMonth).days)
 				break;
-			}
 
 			if (firstRun)
 				x = next_xStartPos;
@@ -212,12 +217,53 @@ void MyCalendar::nextMonth() {
 			break;
 		}
 	}
-
-	prev_xStartPos = (next_xStartPos - 1) % 6;
 }
 void MyCalendar::prevMonth() {
 	resetAllBtns();
 
+	next_xStartPos = prev_xStartPos + 1;
+	if (next_xStartPos > 6)
+		next_xStartPos = 0;
+
+	if (currSelectedMonth != "January") {
+		setMonth(MyMonth::months[MyMonth::getMonth(currSelectedMonth).index - 1].name);
+	}
+	else {
+		currSelectedYear--;
+		setMonth("December");
+	}
+
+	int day = MyMonth::getMonth(currSelectedMonth).days;
+	int x = 0;
+	int y = MyMonth::getMonth(currSelectedMonth).days / 7;
+	bool firstRun = true;
+
+	if ((day - 7 * y + (7 - prev_xStartPos)) >= 7)
+		y+=1;
+
+
+	firstRun = true;
+	//start y? = month.days / 7 ganzzahlige Div nur bedingt, ausnahme muss bedacht werden
+	for (y; y >= 0; y--) {
+		for (x = 6; x >= 0; x--) {
+			if (day < 1)
+				break;
+
+			if (firstRun)
+				x = prev_xStartPos;
+			firstRun = false;
+
+			Window::CalendarForm::buttons[y, x]->Text = gcnew System::String((std::to_string(day--)).c_str());
+		}
+		if (day < 1) {
+			if (x < 0)
+				x = 6;
+
+			prev_xStartPos = x;
+			break;
+		}
+	}
+	//prev_xStartPos = (next_xStartPos - 1) % 6;
 }
 
 

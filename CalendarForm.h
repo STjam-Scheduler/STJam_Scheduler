@@ -843,6 +843,7 @@ private: System::Windows::Forms::Label^ mLabel;
 			this->button43->TabIndex = 3;
 			this->button43->Text = L"<";
 			this->button43->UseVisualStyleBackColor = true;
+			this->button43->Click += gcnew System::EventHandler(this, &CalendarForm::button43_Click);
 			// 
 			// mLabel
 			// 
@@ -878,13 +879,16 @@ private: System::Windows::Forms::Label^ mLabel;
 #pragma endregion
 		//String^ s = gcnew String(char* / string)
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	button1->Text = gcnew String("12131231");
+	//button1->Text = gcnew String("12131231");
 }
 private: System::Void CalendarForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	MyCalendar::initializeCalendar();
 }
 private: System::Void button44_Click(System::Object^ sender, System::EventArgs^ e) {
 	MyCalendar::nextMonth();
+}
+private: System::Void button43_Click(System::Object^ sender, System::EventArgs^ e) {
+	MyCalendar::prevMonth();
 }
 };
 }

@@ -8,6 +8,7 @@ class MyCalendar
 {
 public:
 	static std::string currSelectedMonth;
+	static int currSelectedYear;
 	static int xStartPos;
 	static int yStartPos;
 	static int next_xStartPos;
