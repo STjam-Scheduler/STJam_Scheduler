@@ -1,4 +1,5 @@
 #pragma once
+#include "CalendarForm.h"
 
 
 namespace Window {
@@ -164,7 +165,14 @@ namespace Window {
 	private: System::Void PwBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void Loginbutton_Click(System::Object^ sender, System::EventArgs^ e) {
-		CheckInput();
+
+		if (CheckInput()) {
+			Window::CalendarForm^ frm = gcnew Window::CalendarForm();
+			frm->Location = this->Location;
+			frm->Show();
+			this->Hide();
+		}
+
 	}
 
 };

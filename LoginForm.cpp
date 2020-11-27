@@ -19,8 +19,8 @@ bool LoginForm::CheckInput() {
 		DebugLabel->Text = "Wrong Password.";
 		return false;
 		}
-	else
+	
 		//grabdata
-		DebugLabel->Text = "Success!";
+	DebugLabel->Text = "Success!";
 	return true;
 }
