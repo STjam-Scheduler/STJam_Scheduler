@@ -305,6 +305,32 @@ void MyCalendar::prevMonth() {
 }
 
 
+#pragma region backgroundcolor
+void MyCalendar::setSickDay(System::Windows::Forms::Button^ thisBtn) {
+	thisBtn->BackColor = System::Drawing::Color::RosyBrown;
+}
+
+void MyCalendar::setVacation(System::Windows::Forms::Button^ thisBtn) {
+	thisBtn->BackColor = System::Drawing::Color::DarkSeaGreen;
+}
+
+void MyCalendar::setTimeEntered(System::Windows::Forms::Button^ thisBtn) {
+	thisBtn->BackColor = System::Drawing::Color::LightGray;
+}
+
+void MyCalendar::setHoliday(System::Windows::Forms::Button^ thisBtn) {
+	thisBtn->BackColor = System::Drawing::SystemColors::ControlDarkDark;
+}
+
+void MyCalendar::resetBackgrounds() {
+	for (int y = 0; y < 6; y++) {
+		for (int x = 0; x < 6; x++) {
+			Window::CalendarForm::buttons[y, x]->BackColor = System::Drawing::SystemColors::ControlLightLight;
+		}
+	}
+}
+#pragma endregion
+
 
 
 void MyCalendar::initializeCalendar() {

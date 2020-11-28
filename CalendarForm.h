@@ -21,6 +21,12 @@ namespace Window {
 	public:
 		static cli::array<Button^, 2>^ buttons = gcnew cli::array<Button^, 2>(6,7); 
 		static System::Windows::Forms::Label^ yearLabel;
+
+	public:
+
+	public:
+
+	public:
 		static System::Windows::Forms::Label^ monthLabel;
 	public:
 
@@ -275,426 +281,675 @@ namespace Window {
 			// 
 			// button1
 			// 
+			this->button1->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button1->Location = System::Drawing::Point(0, 0);
 			this->button1->Margin = System::Windows::Forms::Padding(0);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(180, 120);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"button1";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button2
 			// 
+			this->button2->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button2->Location = System::Drawing::Point(180, 0);
 			this->button2->Margin = System::Windows::Forms::Padding(0);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(180, 120);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"button2";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button3
 			// 
+			this->button3->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button3->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button3->Location = System::Drawing::Point(360, 0);
 			this->button3->Margin = System::Windows::Forms::Padding(0);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(180, 120);
 			this->button3->TabIndex = 2;
 			this->button3->Text = L"button3";
-			this->button3->UseVisualStyleBackColor = true;
+			this->button3->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button4
 			// 
+			this->button4->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button4->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button4->Location = System::Drawing::Point(540, 0);
 			this->button4->Margin = System::Windows::Forms::Padding(0);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(180, 120);
 			this->button4->TabIndex = 3;
 			this->button4->Text = L"button4";
-			this->button4->UseVisualStyleBackColor = true;
+			this->button4->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button4->UseVisualStyleBackColor = false;
+			this->button4->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button5
 			// 
+			this->button5->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button5->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button5->Location = System::Drawing::Point(720, 0);
 			this->button5->Margin = System::Windows::Forms::Padding(0);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(180, 120);
 			this->button5->TabIndex = 4;
 			this->button5->Text = L"button5";
-			this->button5->UseVisualStyleBackColor = true;
+			this->button5->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button5->UseVisualStyleBackColor = false;
+			this->button5->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button6
 			// 
+			this->button6->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button6->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button6->Location = System::Drawing::Point(900, 0);
 			this->button6->Margin = System::Windows::Forms::Padding(0);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(180, 120);
 			this->button6->TabIndex = 5;
 			this->button6->Text = L"button6";
-			this->button6->UseVisualStyleBackColor = true;
+			this->button6->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button6->UseVisualStyleBackColor = false;
+			this->button6->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button7
 			// 
+			this->button7->BackColor = System::Drawing::SystemColors::ControlDarkDark;
+			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button7->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button7->Location = System::Drawing::Point(1080, 0);
 			this->button7->Margin = System::Windows::Forms::Padding(0);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(180, 120);
 			this->button7->TabIndex = 6;
 			this->button7->Text = L"button7";
-			this->button7->UseVisualStyleBackColor = true;
+			this->button7->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button7->UseVisualStyleBackColor = false;
+			this->button7->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button8
 			// 
+			this->button8->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button8->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button8->Location = System::Drawing::Point(0, 120);
 			this->button8->Margin = System::Windows::Forms::Padding(0);
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(180, 120);
 			this->button8->TabIndex = 7;
 			this->button8->Text = L"button8";
-			this->button8->UseVisualStyleBackColor = true;
+			this->button8->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button8->UseVisualStyleBackColor = false;
+			this->button8->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button9
 			// 
+			this->button9->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button9->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button9->Location = System::Drawing::Point(180, 120);
 			this->button9->Margin = System::Windows::Forms::Padding(0);
 			this->button9->Name = L"button9";
 			this->button9->Size = System::Drawing::Size(180, 120);
 			this->button9->TabIndex = 8;
 			this->button9->Text = L"button9";
-			this->button9->UseVisualStyleBackColor = true;
+			this->button9->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button9->UseVisualStyleBackColor = false;
+			this->button9->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button10
 			// 
+			this->button10->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button10->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button10->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button10->Location = System::Drawing::Point(360, 120);
 			this->button10->Margin = System::Windows::Forms::Padding(0);
 			this->button10->Name = L"button10";
 			this->button10->Size = System::Drawing::Size(180, 120);
 			this->button10->TabIndex = 9;
 			this->button10->Text = L"button10";
-			this->button10->UseVisualStyleBackColor = true;
+			this->button10->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button10->UseVisualStyleBackColor = false;
+			this->button10->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button11
 			// 
+			this->button11->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button11->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button11->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button11->Location = System::Drawing::Point(540, 120);
 			this->button11->Margin = System::Windows::Forms::Padding(0);
 			this->button11->Name = L"button11";
 			this->button11->Size = System::Drawing::Size(180, 120);
 			this->button11->TabIndex = 10;
 			this->button11->Text = L"button11";
-			this->button11->UseVisualStyleBackColor = true;
+			this->button11->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button11->UseVisualStyleBackColor = false;
+			this->button11->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button12
 			// 
+			this->button12->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button12->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button12->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button12->Location = System::Drawing::Point(720, 120);
 			this->button12->Margin = System::Windows::Forms::Padding(0);
 			this->button12->Name = L"button12";
 			this->button12->Size = System::Drawing::Size(180, 120);
 			this->button12->TabIndex = 11;
 			this->button12->Text = L"button12";
-			this->button12->UseVisualStyleBackColor = true;
+			this->button12->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button12->UseVisualStyleBackColor = false;
+			this->button12->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button13
 			// 
+			this->button13->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button13->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button13->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button13->Location = System::Drawing::Point(900, 120);
 			this->button13->Margin = System::Windows::Forms::Padding(0);
 			this->button13->Name = L"button13";
 			this->button13->Size = System::Drawing::Size(180, 120);
 			this->button13->TabIndex = 12;
 			this->button13->Text = L"button13";
-			this->button13->UseVisualStyleBackColor = true;
+			this->button13->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button13->UseVisualStyleBackColor = false;
+			this->button13->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button14
 			// 
+			this->button14->BackColor = System::Drawing::SystemColors::ControlDarkDark;
+			this->button14->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button14->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button14->Location = System::Drawing::Point(1080, 120);
 			this->button14->Margin = System::Windows::Forms::Padding(0);
 			this->button14->Name = L"button14";
 			this->button14->Size = System::Drawing::Size(180, 120);
 			this->button14->TabIndex = 13;
 			this->button14->Text = L"button14";
-			this->button14->UseVisualStyleBackColor = true;
+			this->button14->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button14->UseVisualStyleBackColor = false;
+			this->button14->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button15
 			// 
+			this->button15->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button15->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button15->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button15->Location = System::Drawing::Point(0, 240);
 			this->button15->Margin = System::Windows::Forms::Padding(0);
 			this->button15->Name = L"button15";
 			this->button15->Size = System::Drawing::Size(180, 120);
 			this->button15->TabIndex = 14;
 			this->button15->Text = L"button15";
-			this->button15->UseVisualStyleBackColor = true;
+			this->button15->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button15->UseVisualStyleBackColor = false;
+			this->button15->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button16
 			// 
+			this->button16->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button16->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button16->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button16->Location = System::Drawing::Point(180, 240);
 			this->button16->Margin = System::Windows::Forms::Padding(0);
 			this->button16->Name = L"button16";
 			this->button16->Size = System::Drawing::Size(180, 120);
 			this->button16->TabIndex = 15;
 			this->button16->Text = L"button16";
-			this->button16->UseVisualStyleBackColor = true;
+			this->button16->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button16->UseVisualStyleBackColor = false;
+			this->button16->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button17
 			// 
+			this->button17->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button17->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button17->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button17->Location = System::Drawing::Point(360, 240);
 			this->button17->Margin = System::Windows::Forms::Padding(0);
 			this->button17->Name = L"button17";
 			this->button17->Size = System::Drawing::Size(180, 120);
 			this->button17->TabIndex = 16;
 			this->button17->Text = L"button17";
-			this->button17->UseVisualStyleBackColor = true;
+			this->button17->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button17->UseVisualStyleBackColor = false;
+			this->button17->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button18
 			// 
+			this->button18->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button18->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button18->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button18->Location = System::Drawing::Point(540, 240);
 			this->button18->Margin = System::Windows::Forms::Padding(0);
 			this->button18->Name = L"button18";
 			this->button18->Size = System::Drawing::Size(180, 120);
 			this->button18->TabIndex = 17;
 			this->button18->Text = L"button18";
-			this->button18->UseVisualStyleBackColor = true;
+			this->button18->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button18->UseVisualStyleBackColor = false;
+			this->button18->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button19
 			// 
+			this->button19->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button19->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button19->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button19->Location = System::Drawing::Point(720, 240);
 			this->button19->Margin = System::Windows::Forms::Padding(0);
 			this->button19->Name = L"button19";
 			this->button19->Size = System::Drawing::Size(180, 120);
 			this->button19->TabIndex = 18;
 			this->button19->Text = L"button19";
-			this->button19->UseVisualStyleBackColor = true;
+			this->button19->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button19->UseVisualStyleBackColor = false;
+			this->button19->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button20
 			// 
+			this->button20->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button20->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button20->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button20->Location = System::Drawing::Point(900, 240);
 			this->button20->Margin = System::Windows::Forms::Padding(0);
 			this->button20->Name = L"button20";
 			this->button20->Size = System::Drawing::Size(180, 120);
 			this->button20->TabIndex = 19;
 			this->button20->Text = L"button20";
-			this->button20->UseVisualStyleBackColor = true;
+			this->button20->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button20->UseVisualStyleBackColor = false;
+			this->button20->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button21
 			// 
+			this->button21->BackColor = System::Drawing::SystemColors::ControlDarkDark;
+			this->button21->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button21->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button21->Location = System::Drawing::Point(1080, 240);
 			this->button21->Margin = System::Windows::Forms::Padding(0);
 			this->button21->Name = L"button21";
 			this->button21->Size = System::Drawing::Size(180, 120);
 			this->button21->TabIndex = 20;
 			this->button21->Text = L"button21";
-			this->button21->UseVisualStyleBackColor = true;
+			this->button21->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button21->UseVisualStyleBackColor = false;
+			this->button21->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button22
 			// 
+			this->button22->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button22->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button22->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button22->Location = System::Drawing::Point(0, 360);
 			this->button22->Margin = System::Windows::Forms::Padding(0);
 			this->button22->Name = L"button22";
 			this->button22->Size = System::Drawing::Size(180, 120);
 			this->button22->TabIndex = 21;
 			this->button22->Text = L"button22";
-			this->button22->UseVisualStyleBackColor = true;
+			this->button22->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button22->UseVisualStyleBackColor = false;
+			this->button22->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button23
 			// 
+			this->button23->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button23->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button23->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button23->Location = System::Drawing::Point(180, 360);
 			this->button23->Margin = System::Windows::Forms::Padding(0);
 			this->button23->Name = L"button23";
 			this->button23->Size = System::Drawing::Size(180, 120);
 			this->button23->TabIndex = 22;
 			this->button23->Text = L"button23";
-			this->button23->UseVisualStyleBackColor = true;
+			this->button23->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button23->UseVisualStyleBackColor = false;
+			this->button23->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button24
 			// 
+			this->button24->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button24->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button24->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button24->Location = System::Drawing::Point(360, 360);
 			this->button24->Margin = System::Windows::Forms::Padding(0);
 			this->button24->Name = L"button24";
 			this->button24->Size = System::Drawing::Size(180, 120);
 			this->button24->TabIndex = 23;
 			this->button24->Text = L"button24";
-			this->button24->UseVisualStyleBackColor = true;
+			this->button24->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button24->UseVisualStyleBackColor = false;
+			this->button24->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button25
 			// 
+			this->button25->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button25->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button25->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button25->Location = System::Drawing::Point(540, 360);
 			this->button25->Margin = System::Windows::Forms::Padding(0);
 			this->button25->Name = L"button25";
 			this->button25->Size = System::Drawing::Size(180, 120);
 			this->button25->TabIndex = 24;
 			this->button25->Text = L"button25";
-			this->button25->UseVisualStyleBackColor = true;
+			this->button25->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button25->UseVisualStyleBackColor = false;
+			this->button25->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button26
 			// 
+			this->button26->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button26->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button26->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button26->Location = System::Drawing::Point(720, 360);
 			this->button26->Margin = System::Windows::Forms::Padding(0);
 			this->button26->Name = L"button26";
 			this->button26->Size = System::Drawing::Size(180, 120);
 			this->button26->TabIndex = 25;
 			this->button26->Text = L"button26";
-			this->button26->UseVisualStyleBackColor = true;
+			this->button26->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button26->UseVisualStyleBackColor = false;
+			this->button26->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button27
 			// 
+			this->button27->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button27->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button27->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button27->Location = System::Drawing::Point(900, 360);
 			this->button27->Margin = System::Windows::Forms::Padding(0);
 			this->button27->Name = L"button27";
 			this->button27->Size = System::Drawing::Size(180, 120);
 			this->button27->TabIndex = 26;
 			this->button27->Text = L"button27";
-			this->button27->UseVisualStyleBackColor = true;
+			this->button27->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button27->UseVisualStyleBackColor = false;
+			this->button27->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button28
 			// 
+			this->button28->BackColor = System::Drawing::SystemColors::ControlDarkDark;
+			this->button28->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button28->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button28->Location = System::Drawing::Point(1080, 360);
 			this->button28->Margin = System::Windows::Forms::Padding(0);
 			this->button28->Name = L"button28";
 			this->button28->Size = System::Drawing::Size(180, 120);
 			this->button28->TabIndex = 27;
 			this->button28->Text = L"button28";
-			this->button28->UseVisualStyleBackColor = true;
+			this->button28->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button28->UseVisualStyleBackColor = false;
+			this->button28->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button29
 			// 
+			this->button29->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button29->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button29->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button29->Location = System::Drawing::Point(0, 480);
 			this->button29->Margin = System::Windows::Forms::Padding(0);
 			this->button29->Name = L"button29";
 			this->button29->Size = System::Drawing::Size(180, 120);
 			this->button29->TabIndex = 28;
 			this->button29->Text = L"button29";
-			this->button29->UseVisualStyleBackColor = true;
+			this->button29->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button29->UseVisualStyleBackColor = false;
+			this->button29->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button30
 			// 
+			this->button30->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button30->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button30->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button30->Location = System::Drawing::Point(180, 480);
 			this->button30->Margin = System::Windows::Forms::Padding(0);
 			this->button30->Name = L"button30";
 			this->button30->Size = System::Drawing::Size(180, 120);
 			this->button30->TabIndex = 29;
 			this->button30->Text = L"button30";
-			this->button30->UseVisualStyleBackColor = true;
+			this->button30->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button30->UseVisualStyleBackColor = false;
+			this->button30->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button31
 			// 
+			this->button31->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button31->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button31->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button31->Location = System::Drawing::Point(360, 480);
 			this->button31->Margin = System::Windows::Forms::Padding(0);
 			this->button31->Name = L"button31";
 			this->button31->Size = System::Drawing::Size(180, 120);
 			this->button31->TabIndex = 30;
 			this->button31->Text = L"button31";
-			this->button31->UseVisualStyleBackColor = true;
+			this->button31->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button31->UseVisualStyleBackColor = false;
+			this->button31->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button32
 			// 
+			this->button32->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button32->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button32->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button32->Location = System::Drawing::Point(540, 480);
 			this->button32->Margin = System::Windows::Forms::Padding(0);
 			this->button32->Name = L"button32";
 			this->button32->Size = System::Drawing::Size(180, 120);
 			this->button32->TabIndex = 31;
 			this->button32->Text = L"button32";
-			this->button32->UseVisualStyleBackColor = true;
+			this->button32->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button32->UseVisualStyleBackColor = false;
+			this->button32->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button33
 			// 
+			this->button33->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button33->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button33->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button33->Location = System::Drawing::Point(720, 480);
 			this->button33->Margin = System::Windows::Forms::Padding(0);
 			this->button33->Name = L"button33";
 			this->button33->Size = System::Drawing::Size(180, 120);
 			this->button33->TabIndex = 32;
 			this->button33->Text = L"button33";
-			this->button33->UseVisualStyleBackColor = true;
+			this->button33->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button33->UseVisualStyleBackColor = false;
+			this->button33->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button34
 			// 
+			this->button34->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button34->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button34->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button34->Location = System::Drawing::Point(900, 480);
 			this->button34->Margin = System::Windows::Forms::Padding(0);
 			this->button34->Name = L"button34";
 			this->button34->Size = System::Drawing::Size(180, 120);
 			this->button34->TabIndex = 33;
 			this->button34->Text = L"button34";
-			this->button34->UseVisualStyleBackColor = true;
+			this->button34->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button34->UseVisualStyleBackColor = false;
+			this->button34->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button35
 			// 
+			this->button35->BackColor = System::Drawing::SystemColors::ControlDarkDark;
+			this->button35->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button35->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button35->Location = System::Drawing::Point(1080, 480);
 			this->button35->Margin = System::Windows::Forms::Padding(0);
 			this->button35->Name = L"button35";
 			this->button35->Size = System::Drawing::Size(180, 120);
 			this->button35->TabIndex = 34;
 			this->button35->Text = L"button35";
-			this->button35->UseVisualStyleBackColor = true;
+			this->button35->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button35->UseVisualStyleBackColor = false;
+			this->button35->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button36
 			// 
+			this->button36->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button36->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button36->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button36->Location = System::Drawing::Point(0, 600);
 			this->button36->Margin = System::Windows::Forms::Padding(0);
 			this->button36->Name = L"button36";
 			this->button36->Size = System::Drawing::Size(180, 120);
 			this->button36->TabIndex = 35;
 			this->button36->Text = L"button36";
-			this->button36->UseVisualStyleBackColor = true;
+			this->button36->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button36->UseVisualStyleBackColor = false;
+			this->button36->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button37
 			// 
+			this->button37->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button37->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button37->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button37->Location = System::Drawing::Point(180, 600);
 			this->button37->Margin = System::Windows::Forms::Padding(0);
 			this->button37->Name = L"button37";
 			this->button37->Size = System::Drawing::Size(180, 120);
 			this->button37->TabIndex = 36;
 			this->button37->Text = L"button37";
-			this->button37->UseVisualStyleBackColor = true;
+			this->button37->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button37->UseVisualStyleBackColor = false;
+			this->button37->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button38
 			// 
+			this->button38->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button38->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button38->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button38->Location = System::Drawing::Point(360, 600);
 			this->button38->Margin = System::Windows::Forms::Padding(0);
 			this->button38->Name = L"button38";
 			this->button38->Size = System::Drawing::Size(180, 120);
 			this->button38->TabIndex = 37;
 			this->button38->Text = L"button38";
-			this->button38->UseVisualStyleBackColor = true;
+			this->button38->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button38->UseVisualStyleBackColor = false;
+			this->button38->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button39
 			// 
+			this->button39->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button39->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button39->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button39->Location = System::Drawing::Point(540, 600);
 			this->button39->Margin = System::Windows::Forms::Padding(0);
 			this->button39->Name = L"button39";
 			this->button39->Size = System::Drawing::Size(180, 120);
 			this->button39->TabIndex = 38;
 			this->button39->Text = L"button39";
-			this->button39->UseVisualStyleBackColor = true;
+			this->button39->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button39->UseVisualStyleBackColor = false;
+			this->button39->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button40
 			// 
+			this->button40->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button40->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button40->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button40->Location = System::Drawing::Point(720, 600);
 			this->button40->Margin = System::Windows::Forms::Padding(0);
 			this->button40->Name = L"button40";
 			this->button40->Size = System::Drawing::Size(180, 120);
 			this->button40->TabIndex = 39;
 			this->button40->Text = L"button40";
-			this->button40->UseVisualStyleBackColor = true;
+			this->button40->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button40->UseVisualStyleBackColor = false;
+			this->button40->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button41
 			// 
+			this->button41->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->button41->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button41->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button41->Location = System::Drawing::Point(900, 600);
 			this->button41->Margin = System::Windows::Forms::Padding(0);
 			this->button41->Name = L"button41";
 			this->button41->Size = System::Drawing::Size(180, 120);
 			this->button41->TabIndex = 40;
 			this->button41->Text = L"button41";
-			this->button41->UseVisualStyleBackColor = true;
+			this->button41->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button41->UseVisualStyleBackColor = false;
+			this->button41->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button42
 			// 
+			this->button42->BackColor = System::Drawing::SystemColors::ControlDarkDark;
+			this->button42->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button42->Font = (gcnew System::Drawing::Font(L"Calibri", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button42->Location = System::Drawing::Point(1080, 600);
 			this->button42->Margin = System::Windows::Forms::Padding(0);
 			this->button42->Name = L"button42";
 			this->button42->Size = System::Drawing::Size(180, 120);
 			this->button42->TabIndex = 41;
 			this->button42->Text = L"button42";
-			this->button42->UseVisualStyleBackColor = true;
+			this->button42->TextAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->button42->UseVisualStyleBackColor = false;
+			this->button42->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// flowLayoutPanel2
 			// 
@@ -896,23 +1151,28 @@ namespace Window {
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 		//String^ s = gcnew String(char* / string)
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	Button^ thisBtn = safe_cast<Button^>(sender);
-	thisBtn->Text = gcnew String("!");
+	// thisBtn->Text = gcnew String("!");
+	MyCalendar::setSickDay(thisBtn);
+	// MyCalendar::setVacation(thisBtn);
+	// MyCalendar::setTimeEntered(thisBtn);
+	// MyCalendar::setHoliday(thisBtn);
 }
 private: System::Void CalendarForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	MyCalendar::initializeCalendar();
 }
 private: System::Void button44_Click(System::Object^ sender, System::EventArgs^ e) {
 	MyCalendar::nextMonth();
+	MyCalendar::resetBackgrounds();
 }
 private: System::Void button43_Click(System::Object^ sender, System::EventArgs^ e) {
 	MyCalendar::prevMonth();
-	Button^ thisBtn = safe_cast<Button^>(sender);
-	thisBtn->Text = gcnew String("!");
+	MyCalendar::resetBackgrounds();
 }
 };
 }

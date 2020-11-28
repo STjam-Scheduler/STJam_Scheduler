@@ -33,4 +33,11 @@ public:
 
 	static void nextMonth();
 	static void prevMonth();
+
+	/* methods to change backgroundcolor */
+	static void setSickDay(System::Windows::Forms::Button^);
+	static void setVacation(System::Windows::Forms::Button^);		// Ferien
+	static void setTimeEntered(System::Windows::Forms::Button^);
+	static void setHoliday(System::Windows::Forms::Button^);		// Feiertag
+	static void resetBackgrounds();
 };
