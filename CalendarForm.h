@@ -293,6 +293,7 @@ namespace Window {
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"button2";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button3
 			// 
@@ -303,6 +304,7 @@ namespace Window {
 			this->button3->TabIndex = 2;
 			this->button3->Text = L"button3";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &CalendarForm::button1_Click);
 			// 
 			// button4
 			// 
@@ -894,12 +896,12 @@ namespace Window {
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			this->ResumeLayout(false);
-
 		}
 #pragma endregion
 		//String^ s = gcnew String(char* / string)
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	//button1->Text = gcnew String("12131231");
+	Button^ thisBtn = safe_cast<Button^>(sender);
+	thisBtn->Text = gcnew String("!");
 }
 private: System::Void CalendarForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	MyCalendar::initializeCalendar();
@@ -909,6 +911,8 @@ private: System::Void button44_Click(System::Object^ sender, System::EventArgs^ 
 }
 private: System::Void button43_Click(System::Object^ sender, System::EventArgs^ e) {
 	MyCalendar::prevMonth();
+	Button^ thisBtn = safe_cast<Button^>(sender);
+	thisBtn->Text = gcnew String("!");
 }
 };
 }
