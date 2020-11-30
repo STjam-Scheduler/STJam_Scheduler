@@ -158,6 +158,9 @@ void MyCalendar::setUpRest() {
 
 	int startY = moveFromZero / 7;
 	int startX = moveFromZero % 7;
+	if (startX < 0) {
+		startX = 6;
+	}
 
 	int day = 1;
 	bool firstRun = true;
