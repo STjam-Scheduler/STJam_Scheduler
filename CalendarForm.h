@@ -95,6 +95,7 @@ namespace Window {
 				delete components;
 			}
 			Application::Exit();
+			//close database;
 		}
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 	protected:

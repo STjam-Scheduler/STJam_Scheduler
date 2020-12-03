@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "LoginForm.h"
+#include "SqlController.h"
 #include <string>
 #include <msclr\marshal_cppstd.h>
 
@@ -11,11 +12,11 @@ bool LoginForm::CheckInput() {
 	std::string password = context.marshal_as<std::string>(PwBox->Text);
 	int id = -1;
 	//change id if user exists
-	if (uname.compare("test")) {
+	if (SqlController::CheckUser(uname)) {
 		DebugLabel->Text = "Username does not exist.";
 		return false;
 		}
-	else if(password.compare("test")) {
+	else if(SqlController::CheckPassword(uname,password)) {
 		DebugLabel->Text = "Wrong Password.";
 		return false;
 		}
