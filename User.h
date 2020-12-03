@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <time.h>
+#include "CalendarData.h"
 //allgemeine Daten des angemeldeten Benutzers
 class User{
 public:
@@ -13,5 +14,6 @@ public:
 	static int notifications_sum;
 	static time_t flextime;
 	static int sickdays_sum;
+	static CalendarData Monat;
 };
 
