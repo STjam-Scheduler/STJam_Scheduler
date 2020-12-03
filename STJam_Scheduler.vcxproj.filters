@@ -41,6 +41,9 @@
     <ClInclude Include="MyCalendar.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="SickDaysForm.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
     <ClInclude Include="WorktimeForm.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -68,6 +71,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="WorktimeForm.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="SickDaysForm.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

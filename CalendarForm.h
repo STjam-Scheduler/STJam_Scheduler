@@ -1,9 +1,9 @@
-#pragma once
+ï»¿#pragma once
 #include <cstdio>
 #include <msclr\marshal_cppstd.h>
 #include "MyCalendar.h"
 #include "WorktimeForm.h"
-
+#include "SickDaysForm.h"
 
 namespace Window {
 	using namespace System;
@@ -14,7 +14,7 @@ namespace Window {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Zusammenfassung für CalendarForm
+	/// Zusammenfassung fï¿½r CalendarForm
 	/// </summary>
 	
 	
@@ -23,10 +23,10 @@ namespace Window {
 	public:
 		static cli::array<Button^, 2>^ buttons = gcnew cli::array<Button^, 2>(6,7); 
 		static System::Windows::Forms::Label^ yearLabel;
+		static System::Windows::Forms::Label^ flextimeValue;
+		static System::Windows::Forms::Label^ vacationValue;
+		static System::Windows::Forms::Label^ worktimeValue;
 
-	public:
-
-	public:
 
 	public:
 		static System::Windows::Forms::Label^ monthLabel;
@@ -81,8 +81,11 @@ namespace Window {
 
 			monthLabel = mLabel;
 			yearLabel = yLabel;
+			flextimeValue = Flextime;
+			vacationValue = Vacationdays;
+			worktimeValue = Worktime;
 			//
-			//TODO: Konstruktorcode hier hinzufügen.
+			//TODO: Konstruktorcode hier hinzufï¿½gen.
 			//
 		}
 
@@ -155,6 +158,14 @@ namespace Window {
 	private: System::Windows::Forms::Button^ button43;
 	private: System::Windows::Forms::Label^ mLabel;
 	private: System::Windows::Forms::Label^ yLabel;
+	private: System::Windows::Forms::Label^ Worktime;
+	private: System::Windows::Forms::Label^ WorktimeLabel;
+	private: System::Windows::Forms::Label^ FlextimeLabel;
+	private: System::Windows::Forms::Label^ VacationdaysLabel;
+	private: System::Windows::Forms::Label^ Flextime;
+	private: System::Windows::Forms::Label^ Vacationdays;
+	private: System::Windows::Forms::GroupBox^ FlextimeVacationGroupbox;
+	private: System::Windows::Forms::GroupBox^ WorktimeGroupbox;
 
 
 
@@ -166,8 +177,8 @@ namespace Window {
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Erforderliche Methode für die Designerunterstützung.
-		/// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+		/// Erforderliche Methode fï¿½r die Designerunterstï¿½tzung.
+		/// Der Inhalt der Methode darf nicht mit dem Code-Editor geï¿½ndert werden.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -223,6 +234,14 @@ namespace Window {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->WorktimeGroupbox = (gcnew System::Windows::Forms::GroupBox());
+			this->WorktimeLabel = (gcnew System::Windows::Forms::Label());
+			this->Worktime = (gcnew System::Windows::Forms::Label());
+			this->FlextimeVacationGroupbox = (gcnew System::Windows::Forms::GroupBox());
+			this->FlextimeLabel = (gcnew System::Windows::Forms::Label());
+			this->VacationdaysLabel = (gcnew System::Windows::Forms::Label());
+			this->Flextime = (gcnew System::Windows::Forms::Label());
+			this->Vacationdays = (gcnew System::Windows::Forms::Label());
 			this->yLabel = (gcnew System::Windows::Forms::Label());
 			this->button44 = (gcnew System::Windows::Forms::Button());
 			this->button43 = (gcnew System::Windows::Forms::Button());
@@ -230,6 +249,8 @@ namespace Window {
 			this->flowLayoutPanel1->SuspendLayout();
 			this->flowLayoutPanel2->SuspendLayout();
 			this->groupBox1->SuspendLayout();
+			this->WorktimeGroupbox->SuspendLayout();
+			this->FlextimeVacationGroupbox->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// flowLayoutPanel1
@@ -1074,6 +1095,8 @@ namespace Window {
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->Controls->Add(this->WorktimeGroupbox);
+			this->groupBox1->Controls->Add(this->FlextimeVacationGroupbox);
 			this->groupBox1->Controls->Add(this->yLabel);
 			this->groupBox1->Controls->Add(this->button44);
 			this->groupBox1->Controls->Add(this->button43);
@@ -1087,12 +1110,107 @@ namespace Window {
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Calendar";
 			// 
+			// WorktimeGroupbox
+			// 
+			this->WorktimeGroupbox->BackColor = System::Drawing::Color::LightGray;
+			this->WorktimeGroupbox->Controls->Add(this->WorktimeLabel);
+			this->WorktimeGroupbox->Controls->Add(this->Worktime);
+			this->WorktimeGroupbox->Location = System::Drawing::Point(1014, 16);
+			this->WorktimeGroupbox->Name = L"WorktimeGroupbox";
+			this->WorktimeGroupbox->Size = System::Drawing::Size(252, 54);
+			this->WorktimeGroupbox->TabIndex = 43;
+			this->WorktimeGroupbox->TabStop = false;
+			this->WorktimeGroupbox->Text = L"Worktime";
+			// 
+			// WorktimeLabel
+			// 
+			this->WorktimeLabel->AutoSize = true;
+			this->WorktimeLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->WorktimeLabel->Location = System::Drawing::Point(6, 16);
+			this->WorktimeLabel->Name = L"WorktimeLabel";
+			this->WorktimeLabel->Size = System::Drawing::Size(108, 25);
+			this->WorktimeLabel->TabIndex = 10;
+			this->WorktimeLabel->Text = L"Worktime:";
+			// 
+			// Worktime
+			// 
+			this->Worktime->AutoSize = true;
+			this->Worktime->BackColor = System::Drawing::SystemColors::Control;
+			this->Worktime->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Worktime->Location = System::Drawing::Point(166, 16);
+			this->Worktime->Name = L"Worktime";
+			this->Worktime->Size = System::Drawing::Size(54, 25);
+			this->Worktime->TabIndex = 11;
+			this->Worktime->Text = L"0.00";
+			// 
+			// FlextimeVacationGroupbox
+			// 
+			this->FlextimeVacationGroupbox->BackColor = System::Drawing::Color::DarkSeaGreen;
+			this->FlextimeVacationGroupbox->Controls->Add(this->FlextimeLabel);
+			this->FlextimeVacationGroupbox->Controls->Add(this->VacationdaysLabel);
+			this->FlextimeVacationGroupbox->Controls->Add(this->Flextime);
+			this->FlextimeVacationGroupbox->Controls->Add(this->Vacationdays);
+			this->FlextimeVacationGroupbox->Location = System::Drawing::Point(11, 16);
+			this->FlextimeVacationGroupbox->Name = L"FlextimeVacationGroupbox";
+			this->FlextimeVacationGroupbox->Size = System::Drawing::Size(262, 73);
+			this->FlextimeVacationGroupbox->TabIndex = 12;
+			this->FlextimeVacationGroupbox->TabStop = false;
+			this->FlextimeVacationGroupbox->Text = L"FlextimeVacation";
+			// 
+			// FlextimeLabel
+			// 
+			this->FlextimeLabel->AutoSize = true;
+			this->FlextimeLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->FlextimeLabel->Location = System::Drawing::Point(6, 11);
+			this->FlextimeLabel->Name = L"FlextimeLabel";
+			this->FlextimeLabel->Size = System::Drawing::Size(99, 25);
+			this->FlextimeLabel->TabIndex = 6;
+			this->FlextimeLabel->Text = L"Flextime:";
+			// 
+			// VacationdaysLabel
+			// 
+			this->VacationdaysLabel->AutoSize = true;
+			this->VacationdaysLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->VacationdaysLabel->Location = System::Drawing::Point(6, 42);
+			this->VacationdaysLabel->Name = L"VacationdaysLabel";
+			this->VacationdaysLabel->Size = System::Drawing::Size(148, 25);
+			this->VacationdaysLabel->TabIndex = 7;
+			this->VacationdaysLabel->Text = L"Vacationdays:";
+			// 
+			// Flextime
+			// 
+			this->Flextime->AutoSize = true;
+			this->Flextime->BackColor = System::Drawing::SystemColors::Control;
+			this->Flextime->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Flextime->Location = System::Drawing::Point(166, 11);
+			this->Flextime->Name = L"Flextime";
+			this->Flextime->Size = System::Drawing::Size(85, 25);
+			this->Flextime->TabIndex = 8;
+			this->Flextime->Text = L"+/- 0.00";
+			// 
+			// Vacationdays
+			// 
+			this->Vacationdays->AutoSize = true;
+			this->Vacationdays->BackColor = System::Drawing::SystemColors::Control;
+			this->Vacationdays->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Vacationdays->Location = System::Drawing::Point(166, 42);
+			this->Vacationdays->Name = L"Vacationdays";
+			this->Vacationdays->Size = System::Drawing::Size(36, 25);
+			this->Vacationdays->TabIndex = 9;
+			this->Vacationdays->Text = L"30";
+			// 
 			// yLabel
 			// 
 			this->yLabel->AutoSize = true;
-			this->yLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->yLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->yLabel->Location = System::Drawing::Point(1116, 16);
+			this->yLabel->Location = System::Drawing::Point(673, 32);
 			this->yLabel->MinimumSize = System::Drawing::Size(150, 40);
 			this->yLabel->Name = L"yLabel";
 			this->yLabel->Size = System::Drawing::Size(150, 40);
@@ -1104,7 +1222,7 @@ namespace Window {
 			// 
 			this->button44->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button44->Location = System::Drawing::Point(726, 16);
+			this->button44->Location = System::Drawing::Point(829, 27);
 			this->button44->Name = L"button44";
 			this->button44->Size = System::Drawing::Size(56, 56);
 			this->button44->TabIndex = 4;
@@ -1116,7 +1234,7 @@ namespace Window {
 			// 
 			this->button43->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button43->Location = System::Drawing::Point(484, 16);
+			this->button43->Location = System::Drawing::Point(405, 27);
 			this->button43->Name = L"button43";
 			this->button43->Size = System::Drawing::Size(56, 56);
 			this->button43->TabIndex = 3;
@@ -1129,7 +1247,7 @@ namespace Window {
 			this->mLabel->AutoSize = true;
 			this->mLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->mLabel->Location = System::Drawing::Point(546, 16);
+			this->mLabel->Location = System::Drawing::Point(495, 27);
 			this->mLabel->MinimumSize = System::Drawing::Size(180, 50);
 			this->mLabel->Name = L"mLabel";
 			this->mLabel->Size = System::Drawing::Size(180, 50);
@@ -1152,6 +1270,10 @@ namespace Window {
 			this->flowLayoutPanel2->PerformLayout();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			this->WorktimeGroupbox->ResumeLayout(false);
+			this->WorktimeGroupbox->PerformLayout();
+			this->FlextimeVacationGroupbox->ResumeLayout(false);
+			this->FlextimeVacationGroupbox->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -1159,6 +1281,13 @@ namespace Window {
 		//String^ s = gcnew String(char* / string)
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	Button^ thisBtn = safe_cast<Button^>(sender);
+
+	//if (user == HR) {
+	//	STJam_Scheduler::SickDaysForm^ frm = gcnew STJam_Scheduler::SickDaysForm(thisBtn);
+	//	frm->Location = this->Location;
+	//	frm->Show();
+	//}
+
 	// thisBtn->Text = gcnew String("!");
 	//MyCalendar::setSickDay(thisBtn);
 	//MyCalendar::setVacation(thisBtn);
