@@ -70,7 +70,7 @@ bool SqlController::CheckUser(std::string uname) {
 			}
 
 			if (name.compare("1")) {
-				return false;
+				return true;
 			}
 			else {
 				return false; //User existiert
