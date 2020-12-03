@@ -41,6 +41,12 @@
     <ClInclude Include="MyCalendar.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="CalendarData.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -62,6 +68,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="MyCalendar.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="CalendarData.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
