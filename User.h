@@ -14,6 +14,7 @@ public:
 	static int notifications_sum;
 	static time_t flextime;
 	static int sickdays_sum;
+	static double duration_wt;
 	static CalendarData Monat;
 };
 
