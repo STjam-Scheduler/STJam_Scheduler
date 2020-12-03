@@ -2,6 +2,8 @@
 #include <cstdio>
 #include <msclr\marshal_cppstd.h>
 #include "MyCalendar.h"
+#include "WorktimeForm.h"
+
 
 namespace Window {
 	using namespace System;
@@ -1158,9 +1160,19 @@ namespace Window {
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	Button^ thisBtn = safe_cast<Button^>(sender);
 	// thisBtn->Text = gcnew String("!");
-	MyCalendar::setSickDay(thisBtn);
-	// MyCalendar::setVacation(thisBtn);
-	// MyCalendar::setTimeEntered(thisBtn);
+	//MyCalendar::setSickDay(thisBtn);
+	//MyCalendar::setVacation(thisBtn);
+	Window::WorktimeForm^ frm = gcnew Window::WorktimeForm();
+	frm->Location = this->Location;
+	frm->Show();
+	
+	/*
+	if(data[]==NULL){
+		MyCalendar::resetoneBackground(thisBtn);
+	}else{
+	MyCalendar::setTimeEntered(thisBtn);
+	}
+	*/
 	// MyCalendar::setHoliday(thisBtn);
 }
 private: System::Void CalendarForm_Load(System::Object^ sender, System::EventArgs^ e) {

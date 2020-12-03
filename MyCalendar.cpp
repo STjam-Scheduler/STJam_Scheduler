@@ -338,6 +338,10 @@ void MyCalendar::resetBackgrounds() {
 		}
 	}
 }
+
+void MyCalendar::resetoneBackground(System::Windows::Forms::Button^ thisBtn) {
+	thisBtn->BackColor = System::Drawing::SystemColors::ControlLightLight;
+}
 #pragma endregion
 
 
