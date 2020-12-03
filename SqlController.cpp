@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "SqlController.h"
-
+#include "WorktimeForm.h"
 
 
 bool SqlController::ConnectToMySql(const char* host, const char* user, const char* pwd, const char* db, unsigned int port, const char* unix_socket, unsigned long clientflag) {
@@ -118,4 +118,13 @@ bool SqlController::CheckPassword(std::string uname, std::string password) {
 	return true;
 }
 return true;
+}
+
+void SqlController::AddWTTime(const int year, const int month, const int day, const double wt_beginn, const double wt_end, const double breakt)
+{
+}
+
+void SqlController::ChangeWTTime(const int year, const int month, const int day, const double wt_beginn, const double wt_end, const double breakt)
+{
+	
 }

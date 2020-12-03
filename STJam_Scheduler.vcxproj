@@ -157,7 +157,13 @@
     <ClInclude Include="MyMessageBoxes.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SickDaysForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="SqlController.h" />
+    <ClInclude Include="WorktimeForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
@@ -171,7 +177,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SickDaysForm.cpp" />
     <ClCompile Include="SqlController.cpp" />
+    <ClCompile Include="WorktimeForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
@@ -189,6 +197,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SickDaysForm.resx">
+      <DependentUpon>SickDaysForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorktimeForm.resx">
+      <DependentUpon>WorktimeForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

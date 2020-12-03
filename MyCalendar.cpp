@@ -126,21 +126,23 @@ void MyCalendar::setStartDayPos() {
 	setMonth();
 	time_t currDate = getCurrDate();
 
-	int month = stoi(printDate_str(currDate, "%m")); // > set curr month ToDo: List of month names with indexes 0-11
+	int month = stoi(printDate_str(currDate, "%m"));		// > set curr month ToDo: List of month names with indexes 0-11
 	int dayofmonth = stoi(printDate_str(currDate, "%e"));
-	int weekday = stoi(printDate_str(currDate, "%u")); // > "x-Coordinate"
-	int weekofmonth = 0; //"y-Coordinate"
+	int weekday = stoi(printDate_str(currDate, "%u"));			// > "x-Coordinate"
+	int weekofmonth = 0;										//"y-Coordinate"
 
-	if (weekday == 0) {	// 0 = sunday -> index 0 to 6
+	if (weekday == 0) {											// 0 = sunday -> index 0 to 6
 		weekday = 6;
 	}
-	else {				// 1-6 = mo-sa -> index-=1 + sunday=6	=> mo-so (0-6)
+	else {														// 1-6 = mo-sa -> index-=1 + sunday=6	=> mo-so (0-6)
 		weekday--;
 	}
 
-	for (int i = 1; i < 6; i++) {
-		if ((dayofmonth / 7) <= i) {
+
+	for (int i = 1; i < 7; i++) {
+		if (((dayofmonth + 5 - weekday) / 7) < i) {
 			weekofmonth = i - 1;
+			break;
 		}
 	}
 
@@ -162,18 +164,17 @@ void MyCalendar::setUpRest() {
 		startX = 6;
 	}
 
-	int day = 1;
-	bool firstRun = true;
-
-
 	if (isLeapYear(currSelectedYear))		//Leap Year Check
 		MyMonth::months[1].days = 29;
 	else
 		MyMonth::months[1].days = 28;
 
 
+	int day = 1;
+	bool firstRun = true;
+	int x = 0;
 	for (int y = startY; y < 6; y++) {		//ToDo: Fill all Days, not only the days of this month if(y >= startY)... etc attention if(x>= startX) only once -> need prev Month.days for pre Month + reset day counter to 0 after month end
-		for (int x = 0; x < 7; x++) {
+		for (x = 0; x < 7; x++) {
 			if (day > MyMonth::getMonth(currSelectedMonth).days) //ToDo: Get Month.days automatic through func()
 				break;
 
@@ -183,10 +184,18 @@ void MyCalendar::setUpRest() {
 
 			Window::CalendarForm::buttons[y, x]->Text = gcnew System::String((std::to_string(day++)).c_str());
 		}
+		if (day > MyMonth::getMonth(currSelectedMonth).days) {
+			if (x > 6)
+				x = 0;
+
+			next_xStartPos = x;
+			break;
+		}
 	}
 
-	prev_xStartPos = (startX - 1) % 6;
-	next_xStartPos = (MyMonth::getMonth(currSelectedMonth).days - 1) % 7;
+	prev_xStartPos = startX - 1;
+	if (prev_xStartPos < 0)
+		prev_xStartPos = 6;
 }
 #pragma endregion
 
@@ -278,14 +287,11 @@ void MyCalendar::prevMonth() {
 
 	int day = MyMonth::getMonth(currSelectedMonth).days;
 	int x = 0;
-	int y = MyMonth::getMonth(currSelectedMonth).days / 7;
+	int y = ((MyMonth::getMonth(currSelectedMonth).days + 6 - next_xStartPos) / 7); //MyMonth::getMonth(currSelectedMonth).days / 7;
+	if (next_xStartPos == 0)
+		y--;
 	bool firstRun = true;
 
-	if ((day - 7 * y + (7 - prev_xStartPos)) >= 7)
-		y+=1;
-
-
-	firstRun = true;
 	for (y; y >= 0; y--) {
 		for (x = 6; x >= 0; x--) {
 			if (day < 1)
@@ -332,6 +338,33 @@ void MyCalendar::resetBackgrounds() {
 		}
 	}
 }
+
+void MyCalendar::resetoneBackground(System::Windows::Forms::Button^ thisBtn) {
+	thisBtn->BackColor = System::Drawing::SystemColors::ControlLightLight;
+}
+#pragma endregion
+
+
+#pragma region OverviewTimes
+void MyCalendar::setFlextime() {
+	double flextime = 0.00;
+	std::stringstream flextimeStream;
+	// flextime = getFlextimeFromData();
+	flextimeStream << std::setprecision(2) << std::fixed << std::showpos << std::showpoint << flextime;
+	Window::CalendarForm::flextimeValue->Text = gcnew System::String((flextimeStream.str()).c_str());
+}
+void MyCalendar::setVacationdays() {
+	int vacationdays = 0;
+	// vacationdays = getVacationdaysFromData();
+	Window::CalendarForm::vacationValue->Text = gcnew System::String((std::to_string(vacationdays)).c_str());
+}
+void MyCalendar::setWorktime() {
+	double worktime = 0.00;
+	std::stringstream worktimeStream;
+	// worktime = getWorktimeFromData();
+	worktimeStream << std::setprecision(2) << std::fixed << std::showpoint << worktime;
+	Window::CalendarForm::worktimeValue->Text = gcnew System::String((worktimeStream.str()).c_str());
+}
 #pragma endregion
 
 
@@ -340,4 +373,7 @@ void MyCalendar::initializeCalendar() {
 	MyMonth::initializeMonths();
 	setStartDayPos();
 	setUpRest();
+	setFlextime();
+	setVacationdays();
+	setWorktime();
 }

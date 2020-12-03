@@ -2,6 +2,8 @@
 #include <ctime>
 #include <vector>
 #include <string>
+#include <sstream>
+#include <iomanip>
 
 
 class MyCalendar
@@ -39,5 +41,11 @@ public:
 	static void setVacation(System::Windows::Forms::Button^);		// Ferien
 	static void setTimeEntered(System::Windows::Forms::Button^);
 	static void setHoliday(System::Windows::Forms::Button^);		// Feiertag
+	static void resetoneBackground(System::Windows::Forms::Button^);
 	static void resetBackgrounds();
+
+	/* set Flextime/Vacationdays/Worktime */
+	static void setFlextime();
+	static void setVacationdays();
+	static void setWorktime();
 };
