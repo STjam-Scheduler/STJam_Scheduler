@@ -41,6 +41,9 @@
     <ClInclude Include="MyCalendar.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="SickDaysForm.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -62,6 +65,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="MyCalendar.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="SickDaysForm.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

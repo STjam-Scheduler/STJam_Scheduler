@@ -341,9 +341,35 @@ void MyCalendar::resetBackgrounds() {
 #pragma endregion
 
 
+#pragma region OverviewTimes
+void MyCalendar::setFlextime() {
+	double flextime = 0.00;
+	std::stringstream flextimeStream;
+	// flextime = getFlextimeFromData();
+	flextimeStream << std::setprecision(2) << std::fixed << std::showpos << std::showpoint << flextime;
+	Window::CalendarForm::flextimeValue->Text = gcnew System::String((flextimeStream.str()).c_str());
+}
+void MyCalendar::setVacationdays() {
+	int vacationdays = 0;
+	// vacationdays = getVacationdaysFromData();
+	Window::CalendarForm::vacationValue->Text = gcnew System::String((std::to_string(vacationdays)).c_str());
+}
+void MyCalendar::setWorktime() {
+	double worktime = 0.00;
+	std::stringstream worktimeStream;
+	// worktime = getWorktimeFromData();
+	worktimeStream << std::setprecision(2) << std::fixed << std::showpoint << worktime;
+	Window::CalendarForm::worktimeValue->Text = gcnew System::String((worktimeStream.str()).c_str());
+}
+#pragma endregion
+
+
 
 void MyCalendar::initializeCalendar() {
 	MyMonth::initializeMonths();
 	setStartDayPos();
 	setUpRest();
+	setFlextime();
+	setVacationdays();
+	setWorktime();
 }
