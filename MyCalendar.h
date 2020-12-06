@@ -9,43 +9,43 @@
 class MyCalendar
 {
 public:
-	std::string currSelectedMonth;
-	int currSelectedYear;
-	int xStartPos;
-	int yStartPos;
-	int next_xStartPos;
-	int prev_xStartPos;
+	static std::string currSelectedMonth;
+	static int currSelectedYear;
+	static int xStartPos;
+	static int yStartPos;
+	static int next_xStartPos;
+	static int prev_xStartPos;
 
-	void initializeCalendar();
+	static 	void initializeCalendar();
 
-	time_t getCurrDate();
-	bool isLeapYear(int year);
+	static time_t getCurrDate();
+	static bool isLeapYear(int year);
 
-	char* printDate_ch(const time_t t, const char* format);
-	std::string printDate_str(const time_t, const char* format);
+	static char* printDate_ch(const time_t t, const char* format);
+	static std::string printDate_str(const time_t, const char* format);
 
-	void setYear(const time_t t);
-	void setYear(int year);
-	void setMonth(const time_t t);
-	void setMonth(std::string monthname);
-	void setStartDayPos();
-	void setUpRest();
+	static void setYear(const time_t t);
+	static void setYear(int year);
+	static void setMonth(const time_t t);
+	static void setMonth(std::string monthname);
+	static void setStartDayPos();
+	static void setUpRest();
 
-	void resetAllBtns();
+	static void resetAllBtns();
 
-	void nextMonth();
-	void prevMonth();
+	static void nextMonth();
+	static void prevMonth();
 
 	/* methods to change backgroundcolor */
-	void setSickDay(System::Windows::Forms::Button^);
-	void setVacation(System::Windows::Forms::Button^);		// Ferien
-	void setTimeEntered(System::Windows::Forms::Button^);
-	void setHoliday(System::Windows::Forms::Button^);		// Feiertag
-	void resetoneBackground(System::Windows::Forms::Button^);
-	void resetBackgrounds();
+	static void setSickDay(System::Windows::Forms::Button^);
+	static void setVacation(System::Windows::Forms::Button^);		// Ferien
+	static void setTimeEntered(System::Windows::Forms::Button^);
+	static void setHoliday(System::Windows::Forms::Button^);		// Feiertag
+	static void resetoneBackground(System::Windows::Forms::Button^);
+	static void resetBackgrounds();
 
 	/* set Flextime/Vacationdays/Worktime */
-	void setFlextime();
-	void setVacationdays();
-	void setWorktime();
+	static void setFlextime();
+	static void setVacationdays();
+	static void setWorktime();
 };

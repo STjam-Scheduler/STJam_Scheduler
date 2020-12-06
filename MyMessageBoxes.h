@@ -3,13 +3,13 @@
 ref class MyMessageBoxes
 {
 public:
-	int DisplayMessageConnected();
-	int DisplayMessageAdded();
-	int DisplayMessage(LPCTSTR mesg, LPCTSTR caption);
-	int DisplayMessageWrongRepeatPwd();
+	static int DisplayMessageConnected();
+	static int DisplayMessageAdded();
+	static int DisplayMessage(LPCTSTR mesg, LPCTSTR caption);
+	static int DisplayMessageWrongRepeatPwd();
 
 
 
-	int DisplayConfirmSaveAsMessageBox();
+	static int DisplayConfirmSaveAsMessageBox();
 };
 
