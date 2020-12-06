@@ -1,9 +1,11 @@
 ﻿#pragma once
+#include "User.h"
 #include <cstdio>
 #include <msclr\marshal_cppstd.h>
 #include "MyCalendar.h"
 #include "WorktimeForm.h"
 #include "SickDaysForm.h"
+
 
 namespace Window {
 	using namespace System;
@@ -84,9 +86,7 @@ namespace Window {
 			flextimeValue = Flextime;
 			vacationValue = Vacationdays;
 			worktimeValue = Worktime;
-			//
-			//TODO: Konstruktorcode hier hinzuf�gen.
-			//
+			initData();
 		}
 
 	protected:
@@ -102,6 +102,8 @@ namespace Window {
 			Application::Exit();
 			//close database;
 		}
+		//display Data from DB
+		void initData();
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 	protected:
 	private: System::Windows::Forms::Button^ button1;
@@ -1193,6 +1195,7 @@ namespace Window {
 			this->Flextime->Size = System::Drawing::Size(85, 25);
 			this->Flextime->TabIndex = 8;
 			this->Flextime->Text = L"+/- 0.00";
+			
 			// 
 			// Vacationdays
 			// 
@@ -1283,7 +1286,7 @@ namespace Window {
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	Button^ thisBtn = safe_cast<Button^>(sender);
 
-	//if (user == HR) {
+	//if (User::role==3) {
 	//	STJam_Scheduler::SickDaysForm^ frm = gcnew STJam_Scheduler::SickDaysForm(thisBtn);
 	//	frm->Location = this->Location;
 	//	frm->Show();
@@ -1292,7 +1295,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	// thisBtn->Text = gcnew String("!");
 	//MyCalendar::setSickDay(thisBtn);
 	//MyCalendar::setVacation(thisBtn);
-	Window::WorktimeForm^ frm = gcnew Window::WorktimeForm();
+	Window::WorktimeForm^ frm = gcnew Window::WorktimeForm(1234567890);
 	frm->Location = this->Location;
 	frm->Show();
 	
@@ -1308,6 +1311,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void CalendarForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	MyCalendar::initializeCalendar();
 }
+
 private: System::Void button44_Click(System::Object^ sender, System::EventArgs^ e) {
 	MyCalendar::nextMonth();
 	MyCalendar::resetBackgrounds();
@@ -1316,5 +1320,6 @@ private: System::Void button43_Click(System::Object^ sender, System::EventArgs^ 
 	MyCalendar::prevMonth();
 	MyCalendar::resetBackgrounds();
 }
+
 };
 }
