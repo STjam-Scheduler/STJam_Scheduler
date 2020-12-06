@@ -1,8 +1,10 @@
 #include "pch.h"
 #include "WorktimeForm.h"
+#include "User.h"
 
 #include <string>
 #include <msclr\marshal_cppstd.h>
+
 
 using namespace std;
 
@@ -67,4 +69,8 @@ void Window::WorktimeForm::showErro(System::String ^s)
 {
 	erro->ResetText();
 	erro->AppendText(s);
+}
+
+void Window::WorktimeForm::SaveData() {
+	User::flextime;
 }

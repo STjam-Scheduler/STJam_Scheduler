@@ -170,6 +170,7 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CalendarData.cpp" />
+    <ClCompile Include="CalendarForm.cpp" />
     <ClCompile Include="CppCLR_WinformsProjekt.cpp" />
     <ClCompile Include="MyCalendar.cpp" />
     <ClCompile Include="LoginForm.cpp" />
