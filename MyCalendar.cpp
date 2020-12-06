@@ -71,7 +71,7 @@ namespace MyMonth {
 
 
 /// <summary>
-/// global static variables of MyCalendar.cpp
+/// global variables of MyCalendar.cpp
 /// </summary>
 std::string MyCalendar::currSelectedMonth = "Default";
 int MyCalendar::currSelectedYear = 0;

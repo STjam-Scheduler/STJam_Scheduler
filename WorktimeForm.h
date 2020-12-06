@@ -1,5 +1,6 @@
 #pragma once
 #include "SqlController.h"
+#include "User.h"
 
 namespace Window {
 
@@ -20,7 +21,7 @@ namespace Window {
 	private: System::Windows::Forms::Button^ save;
 
 	public:
-		WorktimeForm(void)
+		WorktimeForm(int activeday)
 		{
 			InitializeComponent();
 			//
@@ -41,9 +42,11 @@ namespace Window {
 		}
 
 	private:	//own method
+
 		bool CheckInput();
 		bool CheckBreak();
 		void calc_break();
+		void SaveData();
 	//	string readText();
 		void showErro(System::String^);
 
