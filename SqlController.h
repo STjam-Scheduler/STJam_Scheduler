@@ -17,5 +17,6 @@ public:
 	static void ChangeWTTime(const int year, const int month, const int day, const double wt_beginn, const double wt_end, const double breakt);
 	static bool SqlController::CheckUser(std::string uname);
 	static bool SqlController::CheckPassword(std::string uname, std::string password);
+	static bool SqlController::CheckMonth(int monthid, int calendarid);
 };
 

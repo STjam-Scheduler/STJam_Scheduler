@@ -120,6 +120,44 @@ bool SqlController::CheckPassword(std::string uname, std::string password) {
 return true;
 }
 
+bool SqlController::CheckMonth(int monthid, int calendarid) //prüft ob monat initialisiert wurde
+{
+	std::string month= std::to_string(monthid);
+	std::string calendar = std::to_string(monthid);
+
+	std::string erg = 0;
+	if (conn) {
+
+		std::string query = "SELECT COUNT(1) FROM month WHERE idmonth = \"" + month + "\"" + " AND calendar_idcalendar = \"" + calendar + "\"";
+		const char* q = query.c_str();
+
+
+		MYSQL_RES* result = mysql_store_result(conn);
+		int num_fields = mysql_num_fields(result);
+		MYSQL_ROW row;
+
+		while ((row = mysql_fetch_row(result)))
+		{
+			for (int i = 0; i < num_fields; i++)
+			{
+				erg = row[i];
+			}
+
+			mysql_free_result(result);
+			//mysql_close(conn);
+		}
+
+		if (erg.compare("1")) {
+			return false;		//monat existiert nicht
+		}
+		else {
+			return true;		//monat existiert
+		}
+
+	}
+	return false;
+}
+
 void SqlController::AddWTTime( int id,  int year,  int month,  int day,  double wt_beginn,  double wt_end,  double breakt,  double sum_wt)
 {
 	if (conn) {
