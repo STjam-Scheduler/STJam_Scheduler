@@ -98,6 +98,7 @@ void MyCalendar::setYear(const time_t t = getCurrDate()) {
 	Window::CalendarForm::yearLabel->Text = gcnew System::String(year_pchar);
 }
 void MyCalendar::setYear(int year) {
+	currSelectedYear = year;
 	std::string s = std::to_string(year);
 	char const* year_pchar = s.c_str();
 	Window::CalendarForm::yearLabel->Text = gcnew System::String(year_pchar);
