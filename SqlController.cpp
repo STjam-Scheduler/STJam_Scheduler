@@ -27,9 +27,9 @@ bool SqlController::ConnectToMySql(const char* host, const char* user, const cha
 	return false;
 }
 
-void SqlController::AddUser(std::string firstname, std::string surname, std::string email, std::string userName, std::string password) {
+void SqlController::AddUser(std::string name, std::string surname, int role, int group, std::string username, std::string password) {
 	if (conn) {
-		std::string insert_query = "INSERT INTO user_data (firstname, surname, email, u_name, pwd) VALUES ('" + firstname + "', '" + surname + "', '" + email + "', '" + userName + "', '" + password + "')";
+		std::string insert_query = "INSERT INTO user_data (name, surname, role, group, uername, password) VALUES ('" + name + "', '" + surname + "', '" + char(role) + "', '" + char(group) + "', '" + username + "', ' " +password +" ')";
 
 		const char* q = insert_query.c_str();
 		
@@ -120,11 +120,25 @@ bool SqlController::CheckPassword(std::string uname, std::string password) {
 return true;
 }
 
-void SqlController::AddWTTime(const int year, const int month, const int day, const double wt_beginn, const double wt_end, const double breakt)
+void SqlController::AddWTTime( int id,  int year,  int month,  int day,  double wt_beginn,  double wt_end,  double breakt,  double sum_wt)
 {
+	if (conn) {
+		/*std::string insert_query = "INSERT INTO day (idday,start_wt,end_wt,breaktime,sum_wt,month_idmonth) VALUES ('" + char(day) + "','" + char(wt_beginn) + "','" + char(wt_end) + "','" + char(breakt) + "','" + char(sum_wt) + "','" + char(month) + "')";
+
+		const char* q = insert_query.c_str();
+
+		qstate = mysql_query(conn, q);
+
+		if (!qstate) {
+			MyMessageBoxes::DisplayMessageAdded();
+	
+	}*/
+	}
+	
 }
 
 void SqlController::ChangeWTTime(const int year, const int month, const int day, const double wt_beginn, const double wt_end, const double breakt)
 {
 	
 }
+//TOM:: selct month ob da steffen ; monat einfügen
