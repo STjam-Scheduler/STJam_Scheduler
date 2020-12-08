@@ -164,7 +164,7 @@ int SqlController::getSickdays_sum(std::string name)
 {
 	if (conn) {
 
-		std::string insert_query = "SELECT COUNT(sickdays) FROM calendar Join user On user.idusers = calendar.users_idusers WHERE username = \"" + name + "\"";
+		std::string insert_query = "SELECT sickdays FROM calendar Join user On user.idusers = calendar.users_idusers WHERE username = \"" + name + "\"";
 		const char* q = insert_query.c_str();
 		std::string erg = 0;
 		if (mysql_query(conn, q)) {
