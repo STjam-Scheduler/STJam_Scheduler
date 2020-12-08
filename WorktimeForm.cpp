@@ -14,18 +14,29 @@ bool Window::WorktimeForm::CheckInput() {
 
 		wtBegin = stod(context.marshal_as<string>(wt_beginn_t->Text)); //reinmachen falsche Eingabe
 		wtEnd = stod(context.marshal_as<string>(wt_end_t->Text));
+
+		if (wtBegin >= 24 || wtEnd >= 24) {
+			wtBegin = 0;
+			wtEnd = 0;
+			showErro("illogical time");
+			return false;
+		}
 		
 		calc_break();
 		return true;
 	}
 	catch (exception e) {
 		return false;
+		showErro("Please enter only Numbers");
 	}
 }
 bool Window::WorktimeForm::CheckBreak() {
 	try {
 		msclr::interop::marshal_context context;
-		breakt = stod(context.marshal_as<string>(breaktime->Text));
+		double a=0;
+		a = stod(context.marshal_as<string>(breaktime->Text));
+		
+		breakt = a;
 		return true;
 	}
 	catch (exception e) {
@@ -45,10 +56,12 @@ void Window::WorktimeForm::calc_break()
 		if (sumTime < 9) {
 			breaktime->ResetText();
 			breaktime->AppendText("30");
+			breakt = 30;
 		}
 		else {
 			breaktime->ResetText();
 			breaktime->AppendText("45");
+			breakt = 45;
 		}
 
 	}

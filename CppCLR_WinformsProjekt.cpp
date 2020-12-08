@@ -32,6 +32,6 @@ int main() {
 	//SqlController::AddUser("maxim", "becht", 3, 1, "username", "password");	//um user zu adden beliebige sachen eingeben und username und password in login verwenden
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	Application::Run(gcnew Window::LoginForm);
+	Application::Run(gcnew Window::CalendarForm);
 	return 0;
 }
