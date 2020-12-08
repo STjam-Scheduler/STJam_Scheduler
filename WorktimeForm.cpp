@@ -67,6 +67,11 @@ void Window::WorktimeForm::calc_break()
 	}
 }
 
+void Window::WorktimeForm::calc_flex() {
+	
+
+}
+
 
 /*string Window::WorktimeForm::readText(&TextBox T)
 {
