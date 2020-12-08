@@ -160,7 +160,7 @@ namespace Window {
 			this->breaktime->Size = System::Drawing::Size(100, 22);
 			this->breaktime->TabIndex = 5;
 			this->breaktime->Tag = L"break_box";
-			this->breaktime->TextChanged += gcnew System::EventHandler(this, &WorktimeForm::breaktime_changed);
+			
 			// 
 			// erro
 			// 
@@ -244,9 +244,7 @@ private: System::Void quit_Click(System::Object^ sender, System::EventArgs^ e) {
 			accept->UseVisualStyleBackColor = false;
 			accept->Visible = false;
 		}
-		else {
-			showErro("Please enter only Numbers");
-		}
+		
 	}
 
 	private: System::Void breaktime_calc(System::Object^ sender, System::EventArgs^ e) {
@@ -271,32 +269,33 @@ private: System::Void wt_beginn_t_TextChanged(System::Object^ sender, System::Ev
 	accept->Visible = true;
 }
 private: System::Void save_Click(System::Object^ sender, System::EventArgs^ e) {
-	//if (Data[] == NULL) {												//überprüfen ob breaktime stimmt
-	SqlController::AddWTTime(1, 1, 1, 1,  wtBegin, wtEnd, breakt, 1);
-	User::Monat.makeSpace(User::Monat.activeday);
-	User::Monat.worktime_start[User::Monat.activeday - 1] = wtBegin;
-	User::Monat.worktime_end[User::Monat.activeday - 1] = wtEnd;
-	User::Monat.breaktime[User::Monat.activeday - 1] = breakt;
-	User::sum_wt();
+	//if (Data[] == NULL) {	
+	//überprüfen ob breaktime stimmt
+	if (CheckBreak() == false) {
 
+		showErro("Please enter only Numbers");
+		breaktime->Clear();
+		breaktime->AppendText(breakt.ToString());
+
+
+	}
+	else {
+		SqlController::AddWTTime(1, 1, 1, 1, wtBegin, wtEnd, breakt, 1);
+		User::Monat.makeSpace(User::Monat.activeday);
+		User::Monat.worktime_start[User::Monat.activeday - 1] = wtBegin;
+		User::Monat.worktime_end[User::Monat.activeday - 1] = wtEnd;
+		User::Monat.breaktime[User::Monat.activeday - 1] = breakt;
+		User::sum_wt();
+		this->~WorktimeForm();
+	}
+	}
 	/*}
 	else {
 		SqlController::ChangeWTTime(1, 1, 1, wtBegin, wtEnd, breakt);
 	}*/
-	this->~WorktimeForm();
-}
 	
-private: System::Void breaktime_changed(System::Object^ sender, System::EventArgs^ e) {
-	if (CheckBreak()==false) {
-		
-		showErro("Please enter only Numbers");
-		breaktime->Clear();
-		breaktime->AppendText(breakt.ToString());
-		
+	
 
-	}
-
-}
 };
 
 
