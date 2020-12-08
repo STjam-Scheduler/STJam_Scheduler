@@ -46,6 +46,7 @@ namespace Window {
 		bool CheckInput();
 		bool CheckBreak();
 		void calc_break();
+		void calc_flex();
 
 	//	string readText();
 		void showErro(System::String^);
