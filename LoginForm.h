@@ -75,6 +75,7 @@ namespace Window {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(LoginForm::typeid));
 			this->UNameBox = (gcnew System::Windows::Forms::TextBox());
 			this->PwBox = (gcnew System::Windows::Forms::TextBox());
 			this->UNameLabel = (gcnew System::Windows::Forms::Label());

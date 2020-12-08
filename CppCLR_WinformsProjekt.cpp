@@ -30,6 +30,6 @@ int main() {
 																																	//-> 3.) Ausfuehren: bei erfolgreicher Verbindung sollte eine Message Box erscheinen
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	Application::Run(gcnew Window::CalendarForm());
+	Application::Run(gcnew Window::LoginForm);
 	return 0;
 }
