@@ -2,6 +2,7 @@
 #include <mysql.h>
 #include "MyMessageBoxes.h"
 #include <string>
+#include <sstream>
 ref class SqlController
 {
 	static int qstate;
@@ -18,5 +19,9 @@ public:
 	static bool SqlController::CheckUser(std::string uname);
 	static bool SqlController::CheckPassword(std::string uname, std::string password);
 	static bool SqlController::CheckMonth(int monthid, int calendarid);
+	static void AddMonth(int monthid, int calendarid);
+
+	static int getSickdays_sum(std::string name);
+	static void setSickdays_sum(int, int sum_sick);
 };
 

@@ -158,6 +158,65 @@ bool SqlController::CheckMonth(int monthid, int calendarid) //prüft ob monat ini
 	return false;
 }
 
+void SqlController::AddMonth(int monthid, int calendarid)
+{
+	throw gcnew System::NotImplementedException();
+}
+
+int SqlController::getSickdays_sum(std::string name)
+{
+	if (conn) {
+
+		std::string insert_query = "SELECT COUNT(sickdays) FROM calendar Join user On user.idusers = calendar.users_idusers WHERE username = \"" + name + "\"";
+		const char* q = insert_query.c_str();
+		std::string erg = 0;
+		if (mysql_query(conn, q)) {
+			
+		}
+		else {
+
+			MYSQL_RES* result = mysql_store_result(conn);
+			int num_fields = mysql_num_fields(result);
+			MYSQL_ROW row;
+
+			while ((row = mysql_fetch_row(result)))
+			{
+				for (int i = 0; i < num_fields; i++)
+				{
+					erg = row[i];
+				}
+
+				mysql_free_result(result);
+				//mysql_close(conn);
+			}
+
+			
+		}
+		std::stringstream sstr(erg);
+		int Zahl;
+		sstr >> Zahl;
+		return Zahl;
+	}
+	
+}
+
+void SqlController::setSickdays_sum(int id,int sum_sick)
+{
+	string sick = to_string(sum_sick);
+	string id_s = to_string(id);
+	if (conn) {
+		std::string insert_query = "UPDATE calendar SET sickdays = '"+sick+"' WHERE users_idusers = "+id_s;
+
+		const char* q = insert_query.c_str();
+
+		qstate = mysql_query(conn, q);
+
+		if (!qstate) {
+			MyMessageBoxes::DisplayMessageAdded();
+		}
+	}
+}
+
 void SqlController::AddWTTime( int id,  int year,  int month,  int day,  double wt_beginn,  double wt_end,  double breakt,  double sum_wt)
 {
 	if (conn) {
@@ -179,4 +238,3 @@ void SqlController::ChangeWTTime(const int year, const int month, const int day,
 {
 	
 }
-//TOM:: selct month ob da steffen ; monat einfügen
