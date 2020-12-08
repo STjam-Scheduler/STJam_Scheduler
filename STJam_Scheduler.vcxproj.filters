@@ -96,5 +96,8 @@
     <Image Include="app.ico">
       <Filter>Ressourcendateien</Filter>
     </Image>
+    <Image Include="..\..\STJam_Icon.ico">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
   </ItemGroup>
 </Project>
