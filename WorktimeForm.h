@@ -272,7 +272,7 @@ private: System::Void wt_beginn_t_TextChanged(System::Object^ sender, System::Ev
 }
 private: System::Void save_Click(System::Object^ sender, System::EventArgs^ e) {
 	//if (Data[] == NULL) {												//überprüfen ob breaktime stimmt
-	SqlController::AddWTTime(1, 1, 1, wtBegin, wtEnd, breakt);
+	SqlController::AddWTTime(1, 1, 1, 1,  wtBegin, wtEnd, breakt, 1);
 	User::Monat.makeSpace(User::Monat.activeday);
 	User::Monat.worktime_start[User::Monat.activeday - 1] = wtBegin;
 	User::Monat.worktime_end[User::Monat.activeday - 1] = wtEnd;

@@ -1305,7 +1305,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	User::Monat.activeday = std::stoi(context.marshal_as<std::string>(thisBtn->Text));
 	initData();
 
-	Window::WorktimeForm^ frm = gcnew Window::WorktimeForm(1234567890);
+	Window::WorktimeForm^ frm = gcnew Window::WorktimeForm();
 	frm->Location = this->Location;
 	frm->Show();
 	//keep CalendarForm up to date
