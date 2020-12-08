@@ -28,14 +28,11 @@ bool SqlController::ConnectToMySql(const char* host, const char* user, const cha
 }
 
 void SqlController::AddUser(std::string name, std::string surname, int role, int group, std::string username, std::string password) {
+	std::string role_s = std::to_string(role);
 	if (conn) {
-		std::string insert_query = "INSERT INTO user_data (name, surname, role, group, uername, password) VALUES ('" + name + "', '" + surname + "', '" + char(role) + "', '" + char(group) + "', '" + username + "', ' " +password +" ')";
-
+		std::string insert_query = "INSERT INTO user (name, surname, role, username, password) VALUES ('" + name + "', '" + surname + "', '" + role_s + "', '"  + username + "','" +password + "')";
 		const char* q = insert_query.c_str();
-		
-		qstate = mysql_query(conn, q);
-
-		if (!qstate) {
+		if (mysql_query(conn, q)==0) {
 			MyMessageBoxes::DisplayMessageAdded();
 		}
 	}
