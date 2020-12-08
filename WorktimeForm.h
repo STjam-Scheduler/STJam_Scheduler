@@ -21,7 +21,7 @@ namespace Window {
 	private: System::Windows::Forms::Button^ save;
 
 	public:
-		WorktimeForm(int activeday)
+		WorktimeForm()
 		{
 			InitializeComponent();
 			//
@@ -46,7 +46,7 @@ namespace Window {
 		bool CheckInput();
 		bool CheckBreak();
 		void calc_break();
-		void SaveData();
+
 	//	string readText();
 		void showErro(System::String^);
 
@@ -273,6 +273,11 @@ private: System::Void wt_beginn_t_TextChanged(System::Object^ sender, System::Ev
 private: System::Void save_Click(System::Object^ sender, System::EventArgs^ e) {
 	//if (Data[] == NULL) {												//überprüfen ob breaktime stimmt
 	SqlController::AddWTTime(1, 1, 1, wtBegin, wtEnd, breakt);
+	User::Monat.makeSpace(User::Monat.activeday);
+	User::Monat.worktime_start[User::Monat.activeday - 1] = wtBegin;
+	User::Monat.worktime_end[User::Monat.activeday - 1] = wtEnd;
+	User::Monat.breaktime[User::Monat.activeday - 1] = breakt;
+	User::sum_wt();
 
 	/*}
 	else {

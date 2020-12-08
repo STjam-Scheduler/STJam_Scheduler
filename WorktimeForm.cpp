@@ -70,7 +70,3 @@ void Window::WorktimeForm::showErro(System::String ^s)
 	erro->ResetText();
 	erro->AppendText(s);
 }
-
-void Window::WorktimeForm::SaveData() {
-	User::flextime;
-}

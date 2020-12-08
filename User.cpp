@@ -5,12 +5,20 @@
 
 
 
-int User::sum_wt(){
-	this->duration_wt = 0;
-	for (int d = 0; d < this->Monat.days();d++) {
-		this->duration_wt += (this->Monat.worktime_start[d]-this->Monat.worktime_end[d]);
+void User::sum_wt(){
+	User::duration_wt = 0;
+	for (int d = 0; d < User::Monat.days();d++) {
+		double buffer = User::Monat.worktime_end[d];
+		buffer -= int(User::Monat.worktime_end[d]);
+		buffer *= 1.666;
+		User::duration_wt += (int(User::Monat.worktime_end[d])+buffer); 
+		buffer = User::Monat.worktime_start[d];
+		buffer -= int(User::Monat.worktime_start[d]);
+		buffer *= 1.666;
+		User::duration_wt -= (int(User::Monat.worktime_start[d])+buffer);
+		User::duration_wt -= double(User::Monat.breaktime[d])/60;
 	}
-	return 0;
+	return;
 }
 
 int User::id=0;

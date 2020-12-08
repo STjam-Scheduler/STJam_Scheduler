@@ -29,6 +29,8 @@ namespace Window {
 		static System::Windows::Forms::Label^ vacationValue;
 		static System::Windows::Forms::Label^ worktimeValue;
 
+	public:
+
 
 	public:
 		static System::Windows::Forms::Label^ monthLabel;
@@ -102,8 +104,11 @@ namespace Window {
 			Application::Exit();
 			//close database;
 		}
+
 		//display Data from DB
 		void initData();
+
+
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 	protected:
 	private: System::Windows::Forms::Button^ button1;
@@ -1108,7 +1113,7 @@ namespace Window {
 			this->groupBox1->Controls->Add(this->flowLayoutPanel2);
 			this->groupBox1->Location = System::Drawing::Point(12, 12);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(1273, 846);
+			this->groupBox1->Size = System::Drawing::Size(1434, 846);
 			this->groupBox1->TabIndex = 42;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Calendar";
@@ -1195,7 +1200,6 @@ namespace Window {
 			this->Flextime->Size = System::Drawing::Size(85, 25);
 			this->Flextime->TabIndex = 8;
 			this->Flextime->Text = L"+/- 0.00";
-			
 			// 
 			// Vacationdays
 			// 
@@ -1295,10 +1299,16 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	// thisBtn->Text = gcnew String("!");
 	//MyCalendar::setSickDay(thisBtn);
 	//MyCalendar::setVacation(thisBtn);
+
+	//save selected Day 
+	msclr::interop::marshal_context context;
+	User::Monat.activeday = std::stoi(context.marshal_as<std::string>(thisBtn->Text));
+	initData();
+
 	Window::WorktimeForm^ frm = gcnew Window::WorktimeForm(1234567890);
 	frm->Location = this->Location;
 	frm->Show();
-	
+	//keep CalendarForm up to date
 	/*
 	if(data[]==NULL){
 		MyCalendar::resetoneBackground(thisBtn);
@@ -1320,6 +1330,5 @@ private: System::Void button43_Click(System::Object^ sender, System::EventArgs^ 
 	MyCalendar::prevMonth();
 	MyCalendar::resetBackgrounds();
 }
-
 };
 }

@@ -22,7 +22,6 @@ public:
 	static int sickdays_sum;
 	static double duration_wt;
 	static CalendarData Monat;
-private:
-	int sum_wt();
+	static void sum_wt();
 };
 

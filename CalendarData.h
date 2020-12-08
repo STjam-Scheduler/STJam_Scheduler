@@ -7,6 +7,7 @@ class CalendarData{
 public:
 	int year;
 	int month;
+	int activeday;
 	vector<double> worktime_start;
 	vector<double> worktime_end;
 	vector<int> breaktime;
@@ -14,4 +15,6 @@ public:
 	vector<bool> vacationdays;
 	vector<string> comments;
 	int days();
+	void makeSpace(int);
+
 };
