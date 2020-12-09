@@ -17,7 +17,7 @@ namespace Window {
 	public ref class WorktimeForm : public System::Windows::Forms::Form
 	{
 
-		double wtBegin = 0, wtEnd = 0, breakt = 0;
+		double wtBegin = 0, wtEnd = 0, breakt = 0, sum_Time=0,sum_Flex=0;
 	private: System::Windows::Forms::Button^ save;
 
 	public:
@@ -281,6 +281,8 @@ private: System::Void save_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	}
 	else {
+		calc_flex();
+		User::flextime += sum_Flex;
 		SqlController::AddWTTime(1, 1, 1, 1, wtBegin, wtEnd, breakt, 1);
 		User::Monat.makeSpace(User::Monat.activeday);
 		User::Monat.worktime_start[User::Monat.activeday - 1] = wtBegin;

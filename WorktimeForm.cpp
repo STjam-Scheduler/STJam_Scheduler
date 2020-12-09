@@ -47,13 +47,13 @@ bool Window::WorktimeForm::CheckBreak() {
 
 void Window::WorktimeForm::calc_break()
 {
-	double sumTime = 0;
-	sumTime = wtEnd - wtBegin;
-	if (sumTime < 0) {
-		sumTime = (24 - wtBegin) + wtEnd;
+	sum_Time = wtEnd - wtBegin;
+	if (sum_Time < 0) {
+		sum_Time = (24 - wtBegin) + wtEnd;
 	}
-	if (sumTime >= 6) {
-		if (sumTime < 9) {
+	
+	if (sum_Time >= 6) {
+		if (sum_Time < 9) {
 			breaktime->ResetText();
 			breaktime->AppendText("30");
 			breakt = 30;
@@ -68,7 +68,17 @@ void Window::WorktimeForm::calc_break()
 }
 
 void Window::WorktimeForm::calc_flex() {
+
+double time_m = (sum_Time * 60) - breakt;
+time_m /= 60;
+double min = (time_m - int(time_m))*0.60  ;
+sum_Time = int(time_m) + min;
 	
+	
+	if (sum_Time>8) {
+		sum_Flex = sum_Time - 8;
+		sum_Time =8;
+	}
 
 }
 
