@@ -166,7 +166,7 @@ int SqlController::getSickdays_sum(std::string name)
 
 		std::string insert_query = "SELECT sickdays FROM calendar Join user On user.idusers = calendar.users_idusers WHERE username = \"" + name + "\"";
 		const char* q = insert_query.c_str();
-		std::string erg = 0;
+		std::string erg = "0";
 		if (mysql_query(conn, q)) {
 			
 		}
@@ -209,10 +209,71 @@ void SqlController::setSickdays_sum(int id,int sum_sick)
 		qstate = mysql_query(conn, q);
 
 		if (!qstate) {
-			MyMessageBoxes::DisplayMessageAdded();
+			//MyMessageBoxes::DisplayMessageAdded();
 		}
 	}
 }
+
+
+void SqlController::setFlextime(int id, double flextime) //speichert flextime ind db im format HH.MM oder H.MM
+{
+	
+	std::string flex = to_string(flextime);
+	string id_s = to_string(id);
+	std::size_t pos = flex.find(".");	
+	flex.replace(pos, 1, ":");
+	string input = flex.substr(0,pos+3);
+
+
+	if (conn) {
+		std::string insert_query = "UPDATE calendar SET flextime = '" + input + "' WHERE users_idusers = " + id_s;
+
+		const char* q = insert_query.c_str();
+
+		qstate = mysql_query(conn, q);
+
+		if (!qstate) {
+			//MyMessageBoxes::DisplayMessageAdded();
+		}
+	}
+}
+
+int SqlController::getFLextime_sum(std::string name) {
+	if(conn) {
+
+		std::string insert_query = "SELECT flextime FROM calendar Join user On user.idusers = calendar.users_idusers WHERE username = \"" + name + "\"";
+		const char* q = insert_query.c_str(); 
+		std::string erg = "0";
+		if (mysql_query(conn, q)) {
+
+		}
+		else {
+
+			MYSQL_RES* result = mysql_store_result(conn);
+			int num_fields = mysql_num_fields(result);
+			MYSQL_ROW row;
+
+			while ((row = mysql_fetch_row(result)))
+			{
+				for (int i = 0; i < num_fields; i++)
+				{
+					erg = row[i];
+				}
+
+				mysql_free_result(result);
+				//mysql_close(conn);
+			}
+
+
+		}
+		string output = erg.substr(0, 5);
+		std::size_t pos = output.find(":");
+		output.replace(pos, 1, ".");
+		double Zahl = std::stod(output);
+		return Zahl;
+	}
+
+ }
 
 void SqlController::AddWTTime( int id,  int year,  int month,  int day,  double wt_beginn,  double wt_end,  double breakt,  double sum_wt)
 {

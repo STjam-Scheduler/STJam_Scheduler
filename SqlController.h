@@ -23,5 +23,7 @@ public:
 
 	static int getSickdays_sum(std::string name);
 	static void setSickdays_sum(int, int sum_sick);
+	static int getFLextime_sum(std::string name);
+	static void setFlextime(int id, double flextime);
 };
 
