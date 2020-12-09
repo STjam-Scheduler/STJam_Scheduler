@@ -166,7 +166,7 @@ int SqlController::getSickdays_sum(std::string name)
 
 		std::string insert_query = "SELECT sickdays FROM calendar Join user On user.idusers = calendar.users_idusers WHERE username = \"" + name + "\"";
 		const char* q = insert_query.c_str();
-		std::string erg = 0;
+		std::string erg = "0";
 		if (mysql_query(conn, q)) {
 			
 		}
@@ -242,8 +242,8 @@ int SqlController::getFLextime_sum(std::string name) {
 	if(conn) {
 
 		std::string insert_query = "SELECT flextime FROM calendar Join user On user.idusers = calendar.users_idusers WHERE username = \"" + name + "\"";
-		const char* q = insert_query.c_str(); // f string exce
-		std::string erg = 0;
+		const char* q = insert_query.c_str(); 
+		std::string erg = "0";
 		if (mysql_query(conn, q)) {
 
 		}
@@ -266,9 +266,10 @@ int SqlController::getFLextime_sum(std::string name) {
 
 
 		}
-		std::stringstream sstr(erg);
-		int Zahl;
-		sstr >> Zahl;
+		string output = erg.substr(0, 5);
+		std::size_t pos = output.find(":");
+		output.replace(pos, 1, ".");
+		double Zahl = std::stod(output);
 		return Zahl;
 	}
 

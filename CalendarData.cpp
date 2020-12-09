@@ -18,3 +18,13 @@ void CalendarData::makeSpace(int n){
 	}
 	return;
 }
+
+void CalendarData::set_Flextime_db(int id, double flextime)
+{
+	SqlController::setFlextime(id,flextime);
+}
+
+double CalendarData::get_Flextime(string name)
+{
+	return SqlController::getFLextime_sum(name);
+}
